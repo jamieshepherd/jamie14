@@ -50,4 +50,8 @@ $(function(){
             });
         }
     });
+    // For closing notification boxes / site messages
+    $('.close-button').click(function() {
+        $(this).parent().fadeOut(200);
+    });
 });

@@ -223,12 +223,28 @@ article span.date {
   display:none;
 }
 .site-message {
-    display:block;
     background:#fcf8e3;
     text-align: center;
     padding:10px 0;
     border:1px solid #ddd;
-    margin-top:30px;
+    margin:30px auto 0;
+    width:900px;
+    position:relative;
+    color:#8a6d3b;
+}
+.close-button {
+  position:absolute;
+  top:0;
+  right:0;
+  padding:7px;
+  background:none;
+  border:none;
+  outline:none;
+  color:#999;
+  cursor:pointer;
+}
+.close-button:hover {
+  color:#333;
 }
 /******************************************
  * PROJECT FORMATTING
@@ -476,10 +492,12 @@ blockquote cite:before {
   }
 }
 @media (max-width: 960px) {
-  #main,footer {
+  #main,footer,.site-message {
     width:90%;
-    margin:0 5%;
+  }
+  #main,footer {
     padding:0;
+    margin:0 5%;
   }
   footer .subsection {
     width:30%;

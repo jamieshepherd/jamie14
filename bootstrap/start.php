@@ -25,7 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-	'local' => array('JAMIE-PC'),
+	'local' => array('vagrant-ubuntu-trusty-64'),
     'production' => array('*.jamieshepherd.me')
 ));
 
