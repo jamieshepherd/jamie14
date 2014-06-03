@@ -14,4 +14,9 @@
         </nav>
         @endif
         <img src="/img/logo.svg" height="70" alt="Jamie Shepherd logo">
+        @if(isset($message))
+        <div class="site-message">
+                <p>{{{ $message }}}</p>
+        </div>
+        @endif
     </header>

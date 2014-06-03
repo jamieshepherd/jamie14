@@ -45,21 +45,11 @@ Route::get('/login', function()
 Route::get('/logout', function()
 {
     Auth::logout();
-    return View::make('login');
+    return View::make('login')->with('message', 'You have successfully logged out.');;
 });
 Route::get('/admin', function()
 {
     return View::make('admin.index');
 });
 
-Route::post('/login', function()
-{
-    $email = Input::get('email');
-    $password = Input::get('password');
-    if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-        //return Redirect::to('projects')->with('message', 'You are now logged in!');
-        return Redirect::to('/admin');
-    } else {
-        echo "Failure";
-    }
-});
+Route::post('/login', 'UserController@processLogin');
