@@ -246,6 +246,11 @@ article span.date {
 .close-button:hover {
   color:#333;
 }
+.quicknav li {
+  margin-bottom:10px;
+  margin-left:20px;
+  list-style-type:square;
+}
 /******************************************
  * PROJECT FORMATTING
  ******************************************/

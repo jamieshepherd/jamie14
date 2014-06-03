@@ -8,26 +8,20 @@
     display:inline-block;
     z-index:1;
 }
-.admin ul.left {
-    float: left;
-    margin-left: 20%;
-}
-.admin ul.right {
+.admin ul {
     float: right;
     margin-right: 20%;
 }
-.admin .left li {
+.admin li {
     text-transform: uppercase;
-    padding-left:10px;
+    padding-right:15px;
+    border-left:1px solid #aaa;
+    padding-left:15px;
 }
-.admin .right li {
-    text-transform: uppercase;
-    padding-right:10px;
+.admin li:first-of-type {
+    border-left:none;
 }
-.admin .left .fa {
-    margin-right:3px;
-}
-.admin .right .fa {
+.admin .fa {
     margin-left:3px;
 }
 .admin li a {
