@@ -31,3 +31,15 @@
     color:#f60;
     background:none;
 }
+.admin-nav a  {
+  text-decoration: none;
+  color: #0099ff;
+  font-weight: 600;
+}
+.admin-nav a:hover {
+  color: #ff6600;
+  border-bottom: 1px dotted #ff6600;
+}
+.admin-nav li strong {
+    margin-left:7px;
+}

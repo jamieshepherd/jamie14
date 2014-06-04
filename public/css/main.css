@@ -247,9 +247,15 @@ article span.date {
   color:#333;
 }
 .quicknav li {
-  margin-bottom:10px;
-  margin-left:20px;
-  list-style-type:square;
+  display:inline-block;
+  margin-right:10px;
+}
+.quicknav .sect {
+    margin-left:20px;
+}
+.quicknav .brdr {
+    border-right:1px solid #666;
+    padding-right:10px;
 }
 /******************************************
  * PROJECT FORMATTING
