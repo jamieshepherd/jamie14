@@ -61,10 +61,17 @@ Route::get('/admin', function()
     return View::make('admin.index');
 });
 
+Route::get('/admin/blog/create', function()
+{
+    return View::make('admin.blog.create');
+});
+Route::post('/admin/blog/create', 'ArticleController@addArticle');
+
 Route::get('/admin/blog/{page}', function()
 {
     return View::make('blog');
 });
+
 
 Route::get('/admin/tutorials/{page}', function()
 {
