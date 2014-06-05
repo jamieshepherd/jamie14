@@ -56,3 +56,6 @@
   display:inline-block;
   margin-left:5px;
 }
+.no-margin.btm {
+    margin-bottom:0;
+}

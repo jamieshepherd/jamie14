@@ -82,3 +82,8 @@ Route::get('/admin/projects/{page}', function()
 {
     return View::make('projects');
 });
+
+Route::get('/admin/password', function()
+{
+    return View::make('admin.password');
+});
