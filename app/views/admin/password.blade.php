@@ -11,14 +11,14 @@
         </div>
         <div class="subsection left-aligned">
             <h2>Change your password</h2>
-            <form>
-                <label for="pass">Old password</label>
-                <input name="pass" type="password" class="no-margin btm">
+            <form action="{{ url('/admin/password') }}" method="post">
+                <label for="password_old">Old password</label>
+                <input name="password_old" type="password" class="no-margin btm">
                 <hr>
-                <label for="pass">New password</label>
-                <input name="pass" type="password">
-                <label for="passconfirm">Confirm password</label>
-                <input name="passconfirm" type="password">
+                <label for="password">New password</label>
+                <input name="password" type="password">
+                <label for="password_confirmation">Confirm password</label>
+                <input name="password_confirmation" type="password">
                 <input type="submit" value="Submit">
             </form>
         </div>

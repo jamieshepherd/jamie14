@@ -232,6 +232,10 @@ article span.date {
     position:relative;
     color:#8a6d3b;
 }
+.site-message.error {
+    background:#f00;
+    color:#fff;
+}
 .close-button {
   position:absolute;
   top:0;

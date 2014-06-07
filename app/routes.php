@@ -87,3 +87,4 @@ Route::get('/admin/password', function()
 {
     return View::make('admin.password');
 });
+Route::post('/admin/password', 'UserController@changePassword');

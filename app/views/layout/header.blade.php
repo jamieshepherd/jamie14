@@ -10,9 +10,19 @@
         @endif
         <img src="/img/logo.svg" height="70" alt="Jamie Shepherd logo">
         @if(isset($message))
-        <div class="site-message">
+            <div class="site-message">
                 <span class="fa fa-times close-button"></span>
                 <p>{{{ $message }}}</p>
-        </div>
+            </div>
+        @endif
+
+        @if(isset($errors))
+            errors
+            @foreach($errors as $error)
+                <div class="site-message error">
+                    <span class="fa fa-times close-button"></span>
+                    <p>{{{ $error }}}</p>
+                </div>
+            @endforeach
         @endif
     </header>
