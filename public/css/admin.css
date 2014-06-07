@@ -59,3 +59,7 @@
 .no-margin.btm {
     margin-bottom:0;
 }
+form .error {
+    border: 1px solid #ccc;
+    border-left: 3px solid #f99;
+}

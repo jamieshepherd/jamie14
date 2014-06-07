@@ -13,12 +13,12 @@
             <h2>Change your password</h2>
             <form action="{{ url('/admin/password') }}" method="post">
                 <label for="password_old">Old password</label>
-                <input name="password_old" type="password" class="no-margin btm">
+                <input name="password_old" type="password" class="no-margin btm {{ $errors->first('password_old', 'error') }}">
                 <hr>
                 <label for="password">New password</label>
-                <input name="password" type="password">
+                <input name="password" type="password" {{ $errors->first('password_old', 'class="error"') }}>
                 <label for="password_confirmation">Confirm password</label>
-                <input name="password_confirmation" type="password">
+                <input name="password_confirmation" type="password" {{ $errors->first('password_old', 'class="error"') }}>
                 <input type="submit" value="Submit">
             </form>
         </div>

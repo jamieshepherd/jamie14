@@ -18,24 +18,36 @@ class UserController extends BaseController {
     {
         $input = Input::all();
         $rules = array(
-            'password_old' => 'Required|Min:6',
+            'password_old' => 'Required|Min:4',
             'password' => 'Required|Min:4|Confirmed',
             'password_confirmation' => 'Required|Min:4'
         );
         $validation = Validator::make($input,$rules);
-        $errors = $validation->getMessageBag()->all();
-        dd($errors);
+
         if($validation->passes()) {
-            // validation was successful
-            // now do the actual update to database
-            // send message back to user giving succeess
-            return View::make('admin.password')->with('message', 'This was successful');
+            // The form was correct, now let's see if we entered old password correct
+            $credentials = array('email' => Auth::user()->email, 'password' => $input['password_old']);
+            if(Auth::validate($credentials))
+            {
+                // do the update
+                DB::table('users')
+                    ->where('id', Auth::id())
+                    ->update(array('password' => Hash::make($input['password'])));
+                // send a message
+                return View::make('admin.password')
+                    ->with('message',
+                        'Changing your password was <strong>successful</strong>.');
+            } else {
+                return View::make('admin.password')
+                    ->with('message',
+                        'Sorry, the <strong>old password</strong> you entered was incorrect.');
+            }
         } else {
-            // send a message saying it was unsuccessful
-            return View::make('admin.password')->with(array(
-                'message'=>'something went wrong',
-                $errors
-            ));
+            // Send a message saying it was unsuccessful
+            return View::make('admin.password')
+                ->with('message',
+                    'Changing your password was <strong>unsuccessful</strong>. Please check your submission and try again.')
+                ->withErrors($validation);
         }
     }
 

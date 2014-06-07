@@ -226,15 +226,16 @@ article span.date {
     background:#fcf8e3;
     text-align: center;
     padding:10px 0;
-    border:1px solid #ddd;
+    border:1px solid #fbeed5;
     margin:30px auto 0;
     width:900px;
     position:relative;
     color:#8a6d3b;
 }
-.site-message.error {
-    background:#f00;
-    color:#fff;
+.site-message.alert {
+    background:#f2dede;
+    border-color: #eed3d7;
+    color:#b94a48;
 }
 .close-button {
   position:absolute;

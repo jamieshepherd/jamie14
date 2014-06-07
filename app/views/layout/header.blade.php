@@ -12,17 +12,14 @@
         @if(isset($message))
             <div class="site-message">
                 <span class="fa fa-times close-button"></span>
-                <p>{{{ $message }}}</p>
+                <p>{{ $message }}</p>
             </div>
         @endif
 
-        @if(isset($errors))
-            errors
-            @foreach($errors as $error)
-                <div class="site-message error">
-                    <span class="fa fa-times close-button"></span>
-                    <p>{{{ $error }}}</p>
-                </div>
-            @endforeach
-        @endif
+        @foreach($errors->all() as $message)
+            <div class="site-message alert">
+                <span class="fa fa-times close-button"></span>
+                <p>{{ $message }}</p>
+            </div>
+        @endforeach
     </header>
