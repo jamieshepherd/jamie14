@@ -15,13 +15,13 @@
     <div id="crumbtrail">
         <ul>
         <li class="fa fa-home">
-        <li>Tutorial
-        <li>Connecting mIRC to a BNC
+        <li>{{ $article->type }}
+        <li>{{ $article->title }}
         </ul>
-        <span class="extra extra-date">14th March 2014</span>
+        <span class="extra extra-date">{{ date('d F Y', strtotime($article->created_at)) }}</span>
     </div>
     <article>
-        <span class="date">14th March 2014</span>
+        <span class="date">{{ date('d F Y', strtotime($article->created_at)) }}</span>
         <h1>{{ $article->title }}</h1>
         {{ $parsedown->text($article->text) }}
 
