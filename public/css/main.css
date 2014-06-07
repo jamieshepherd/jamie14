@@ -445,19 +445,19 @@ article pre {
   padding:15px 20px;
   margin:15px 0;
 }
-article pre code {
-  background:none;
-  border:none;
-}
-article pre.code {
-  border-left:3px solid #f60;
-  line-height:200%;
-  overflow:auto;
-}
 code {
   font-size:14px;
   font-family: 'Source Code Pro', monospace;
   color:#000;
+}
+article pre {
+  border-left:3px solid #f60;
+  line-height:200%;
+  overflow:auto;
+}
+article pre code {
+  background:none;
+  border:none;
 }
 p code {
   background-color:#fff;
