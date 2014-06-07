@@ -41,6 +41,8 @@ Route::get('/article', function()
     return View::make('article');
 });
 
+Route::get('/article/{id}', 'ArticleController@displayArticle');
+
 /* Administration */
 
 Route::get('/login', function()

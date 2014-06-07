@@ -19,4 +19,11 @@ class ArticleController extends Controller {
         return View::make('admin.blog.create')->with('message','Awesome! This was created successfully.');
 	}
 
+    public function displayArticle($id)
+    {
+        $article = DB::table('articles')->where('id', $id)->first();
+        $parsedown = new Parsedown();
+        return View::make('article', compact('article','parsedown'));
+    }
+
 }
