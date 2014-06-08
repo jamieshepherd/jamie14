@@ -11,29 +11,20 @@
         </ul>
         <form class="extra"><input type="text" placeholder="SEARCH ARTICLES BY TAG">&nbsp;<i class="fa fa-search"></i></form>
     </div>
+    @foreach($articles as $article)
     <section class="article-preview">
-        <h2><a href="/article">University life</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><a href="#"><span class="date">14th March 2014</span></a><a href="#"><span class="comments">3 comments</span></a><span class="tag">University</span><span class="tag">Plymouth</span><span class="tag">Computer Science</span></div>
+        <h2><a href="/article/{{ $article->id }}">{{ $article->title }}</a></h2>
+        <p>{{ $article->summary }}...</p>
+        <div class="article-info">
+            <span class="date"><a href="/article/{{ $article->id }}">{{ $article->created_at }}</a></span>
+            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread" data-disqus-identifier>&nbsp;</a></span>
+            @foreach($article->tags as $tag)
+            <span class="tag">{{ $tag->text }}</span>
+            @endforeach
+        </div>
     </section>
-    <section class="article-preview">
-        <h2><a href="/article">6 months in, 2014 in review</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><a href="#"><span class="date">14th March 2014</span></a><a href="#"><span class="comments">7 comments</span></a><span class="tag">Technology</span><span class="tag">Life</span><span class="tag">General</span></div>
-    </section>
-    <section class="article-preview">
-        <h2><a href="/article">The change of technology</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><a href="#"><span class="date">14th March 2014</span></a><a href="#"><span class="comments">0 comments</span></a><span class="tag">Technology</span><span class="tag">Forethought</span><span class="tag">Crystal Ball</span></div>
-    </section>
+    @endforeach
+
     <section class="article-preview">
         <h2><a href="/article">Welcome to the website</a></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -42,5 +33,17 @@
         <div class="article-info"><a href="#"><span class="date">14th March 2014</span></a><a href="#"><span class="comments">0 comments</span></a><span class="tag">Design</span></div>
     </section>
     </div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
 </div>
 @stop

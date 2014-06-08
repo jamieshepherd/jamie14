@@ -8,6 +8,7 @@
     <section class="article-editor">
         <h2>Write a tutorial</h2>
         <form action="{{ url('/admin/blog/create') }}" method="post">
+        <input type="hidden" name="type" value="tutorial">
         <label for="title">Title</label>
         <input name="title" type="text" placeholder="Title">
         <label for="title">Article content</label>

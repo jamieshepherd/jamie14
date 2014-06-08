@@ -23,7 +23,7 @@
     <article>
         <span class="date">{{ date('d F Y', strtotime($article->created_at)) }}</span>
         <h1>{{ $article->title }}</h1>
-        {{ $parsedown->text($article->text) }}
+        {{ Parsedown::instance()->text($article->text) }}
 
         <div id="disqus_thread"></div>
         <script type="text/javascript">
