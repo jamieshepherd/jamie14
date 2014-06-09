@@ -8,10 +8,11 @@ class Tag extends Eloquent {
      * @var string
      */
     protected $table = 'tags';
+    protected $guarded = array('id');
 
     public function article()
     {
-        return $this->belongsToMany('Article','id');
+        return $this->belongsToMany('Article');
     }
 
 }

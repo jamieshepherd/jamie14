@@ -410,6 +410,13 @@ form input[type="submit"] {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+span a,span a:hover {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
 
 /******************************************
  * ARTICLE STYLES
@@ -495,8 +502,11 @@ blockquote cite:before {
   background:#f60;
   cursor: pointer;
 }
-.article-info span a {
+.article-info span a, .article-info span.tag:hover {
     color:#fff;
+}
+.article-info span.tag a {
+    color:inherit;
 }
 
 /******************************************

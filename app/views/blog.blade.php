@@ -17,21 +17,16 @@
         <p>{{ $article->summary }}...</p>
         <div class="article-info">
             <span class="date"><a href="/article/{{ $article->id }}">{{ $article->created_at }}</a></span>
-            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread" data-disqus-identifier>&nbsp;</a></span>
+            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread" data-disqus-identifier>0 COMMENTS</a></span>
             @foreach($article->tags as $tag)
-            <span class="tag">{{ $tag->text }}</span>
+                @if(!empty($tag->name))
+                <span class="tag"><a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a></span>
+                @endif
             @endforeach
         </div>
     </section>
     @endforeach
-
-    <section class="article-preview">
-        <h2><a href="/article">Welcome to the website</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><a href="#"><span class="date">14th March 2014</span></a><a href="#"><span class="comments">0 comments</span></a><span class="tag">Design</span></div>
-    </section>
+    {{-- If none exist show error? --}}
     </div>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

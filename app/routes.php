@@ -16,12 +16,8 @@ Route::get('/', function()
     return View::make('index');
 });
 
-Route::get('/blog', 'ArticleController@blogIndex');
-
-Route::get('/tutorials', function()
-{
-    return View::make('tutorials');
-});
+Route::get('/blog', 'ArticleController@displayIndex');
+Route::get('/tutorials', 'ArticleController@displayIndex');
 
 Route::get('/projects', function()
 {

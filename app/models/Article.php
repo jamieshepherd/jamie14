@@ -17,7 +17,21 @@ class Article extends Eloquent {
 
     public function tags()
     {
-        return $this->hasMany('Tag','id');
+        return $this->belongsToMany('Tag');
+    }
+
+    public function syncTags(Article $article, array $tags)
+    {
+        // Create or add tags
+        $tagIds = [];
+        foreach($tags as $tag)
+        {
+            $found = Tag::firstOrCreate(['name' => trim(strtolower($tag))]);
+            $tagIds[] = $found->id;
+        }
+
+        // Assign set tags to article
+        $article->tags()->sync($tagIds);
     }
 
 }
