@@ -16,8 +16,8 @@
         <h2><a href="/article/{{ $article->id }}">{{ $article->title }}</a></h2>
         <p>{{ $article->summary }}...</p>
         <div class="article-info">
-            <span class="date"><a href="/article/{{ $article->id }}">{{ $article->created_at }}</a></span>
-            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread" data-disqus-identifier>0 COMMENTS</a></span>
+            <span class="date"><a href="/article/{{ $article->id }}">{{ date('d F Y', strtotime($article->created_at)) }}</a></span>
+            <span class="comments"><a href="/article/{{ $article->id }}/#disqus_thread" data-disqus-identifier="blog{{$article->id}}">0 COMMENTS</a></span>
             @foreach($article->tags as $tag)
                 @if(!empty($tag->name))
                 <span class="tag"><a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a></span>
@@ -28,6 +28,7 @@
     @endforeach
     {{-- If none exist show error? --}}
     </div>
+
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname

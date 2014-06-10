@@ -9,9 +9,7 @@ class ArticleController extends Controller {
      */
     protected function addArticle()
     {
-        // Do the tags first
-        $tags       = explode(',', Input::get('tags'));
-
+        // Create article object
         $article = new Article;
         $article->title             = Input::get('title');
         $article->setTextAttribute(   Input::get('text'));
@@ -19,9 +17,11 @@ class ArticleController extends Controller {
         $article->visible           = Input::has('public');
         $article->save();
 
-        // sync tags
+        // Get array of tags from Input, sync them to $article
+        $tags       = explode(',', Input::get('tags'));
         $article->syncTags($article,$tags);
 
+        // Let them know the article was successful
         return View::make('admin.blog.create')->with('message','Awesome! This was created successfully.');
     }
 
@@ -42,7 +42,7 @@ class ArticleController extends Controller {
             ->get();
         return View::make('blog', compact('articles'));
     }
-
+    /* no longer required, delete this
     public function syncTags(Article $article, array $tags)
     {
         // Create or add tags
@@ -58,5 +58,5 @@ class ArticleController extends Controller {
         // Assign set tags to article
         $article->tags()->sync($tagIds);
     }
-
+    */
 }
