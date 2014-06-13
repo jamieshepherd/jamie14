@@ -9,7 +9,7 @@
         <li class="fa fa-home">
         <li>BLOG
         </ul>
-        <form class="extra"><input type="text" placeholder="SEARCH ARTICLES BY TAG">&nbsp;<i class="fa fa-search"></i></form>
+        <div class="extra">Showing 4 of 4 results</div>
     </div>
     @foreach($articles as $article)
     <section class="article-preview">
@@ -17,7 +17,7 @@
         <p>{{ $article->summary }}...</p>
         <div class="article-info">
             <span class="date"><a href="/article/{{ $article->id }}">{{ date('d F Y', strtotime($article->created_at)) }}</a></span>
-            <span class="comments"><a href="/article/{{ $article->id }}/#disqus_thread" data-disqus-identifier="blog{{$article->id}}">0 COMMENTS</a></span>
+            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread">0 COMMENTS</a></span>
             @foreach($article->tags as $tag)
                 @if(!empty($tag->name))
                 <span class="tag"><a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a></span>
@@ -26,9 +26,11 @@
         </div>
     </section>
     @endforeach
+    <section>
+    {{ $articles->links() }}
+    </section>
     {{-- If none exist show error? --}}
     </div>
-
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname

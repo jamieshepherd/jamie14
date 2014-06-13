@@ -23,7 +23,7 @@ class Article extends Eloquent {
     public function syncTags(Article $article, array $tags)
     {
         // Create or add tags
-        $tagIds = []; // Do we need to create this here?
+        $tagIds = [];
         foreach($tags as $tag)
         {
             $found = Tag::firstOrCreate(['name' => trim(strtolower($tag))]);

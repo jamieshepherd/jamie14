@@ -9,7 +9,7 @@
         <li class="fa fa-home">
         <li>PROJECTS
         </ul>
-        <form class="extra"><input type="text" placeholder="SEARCH PROJECTS BY TAG">&nbsp;<i class="fa fa-search"></i></form>
+        <div class="pagination"><strong>SORT BY:</strong> CLIENT / PERSONAL</div>
     </div>
     <section class="projects">
         <div class="project-preview anm-opacity">

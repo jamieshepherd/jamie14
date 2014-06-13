@@ -9,7 +9,7 @@
         <li class="fa fa-home">
         <li>TUTORIALS
         </ul>
-        <form class="extra"><input type="text" placeholder="SEARCH ARTICLES BY TAG">&nbsp;<i class="fa fa-search"></i></form>
+        <div class="extra">Showing 4 of 4 results</div>
     </div>
     <section class="article-preview">
         <h2>How to connect mIRC to a BNC</h2>
