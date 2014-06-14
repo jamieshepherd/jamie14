@@ -1,12 +1,12 @@
 <?php
 
-class Media extends Eloquent {
+class Image extends Eloquent {
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'media';
+    protected $table = 'images';
 
 }

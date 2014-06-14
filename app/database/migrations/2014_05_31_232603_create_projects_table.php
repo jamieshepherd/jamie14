@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration {
             $table->string('title');
             $table->string('url');
             $table->text('text');
+            $table->string('tech');
             $table->date('launch_date');
             $table->boolean('visible');
             $table->timestamps();

@@ -133,6 +133,10 @@ section .subsection {
 .subsection:first-of-type {
   margin-right: 3%;
 }
+.project .subsection:first-of-type {
+    margin-left:3%;
+    margin-right:0;
+}
 footer {
   border-top:#ccc 1px solid;
   padding: 30px 0;
@@ -313,6 +317,52 @@ article span.date {
 .project-preview:nth-of-type(2n) {
   margin-left:1%;
  }
+ .project {
+    display:inline-block;
+ }
+ .project .subsection.flip.desktop-left {
+    float:left;
+ }
+  .project .subsection.flip.desktop-right {
+    float:right;
+ }
+
+ .project h2 {
+    padding-bottom:10px;
+ }
+ .project h3 {
+    font-size:16px;
+    padding-bottom:20px;
+    border-bottom:1px solid #ccc;
+    margin-bottom:20px;
+ }
+ .project p {
+    padding-bottom:20px;
+ }
+ .project table {
+    width:100%;
+    margin:10px 0 20px;
+    border:1px solid #ccc;
+ }
+ .project tr:first-of-type {
+    border-top:1px solid #ddd;
+ }
+ .project tr {
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+ }
+ .project tr:nth-of-type(2n) {
+
+ }
+ .project td {
+    width:70%;
+    padding:10px;
+ }
+ .project td:first-child {
+    font-weight:600;
+    width:30%;
+ }
 /******************************************
  * FONT FORMATTING
  ******************************************/
@@ -342,13 +392,18 @@ p {
 }
 p a, blockquote cite a {
   text-decoration: none;
-  color: #0099ff;
+  color: #09f;
   font-weight: 600;
-  border-bottom: 1px dotted #0099ff;
+  border-bottom: 1px dotted #09f;
 }
-p a:hover, blockquote cite a:hover {
-  color: #ff6600;
-  border-bottom: 1px dotted #ff6600;
+p a:hover, blockquote cite a:hover, h3 a:hover {
+  color: #f60;
+  border-bottom: 1px dotted #f60;
+}
+h3 a {
+    color :#09f;
+    text-decoration: none;
+    font-weight:600;
 }
 footer p {
   color: #999;
