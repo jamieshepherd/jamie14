@@ -9,31 +9,44 @@
         <li class="fa fa-home">
         <li>TUTORIALS
         </ul>
-        <div class="extra">Showing 4 of 4 results</div>
+        <div class="extra">DISPLAYING {{ $articles->count() }} results</div>
     </div>
+    @foreach($articles as $article)
     <section class="article-preview">
-        <h2>How to connect mIRC to a BNC</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><span class="date">14th March 2014</span><span class="comments">2 comments</span><span class="tag">mIRC</span><span class="tag">Scripting</span></div>
+        <h2><a href="/article/{{ $article->id }}">{{ $article->title }}</a></h2>
+        <p>{{ $article->summary }}...</p>
+        <div class="article-info">
+            <span class="date"><a href="/article/{{ $article->id }}">{{ date('d F Y', strtotime($article->created_at)) }}</a></span>
+            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread">0 COMMENTS</a></span>
+            @foreach($article->tags as $tag)
+                @if(!empty($tag->name))
+                <span class="tag"><a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a></span>
+                @endif
+            @endforeach
+        </div>
     </section>
-    <section class="article-preview">
-        <h2>Using routes and filters in Laravel 4.2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><span class="date">14th March 2014</span><span class="comments">0 comments</span><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Routes</span><span class="tag">Filters</span></div>
+    @endforeach
+    <section>
+    @if(count($articles)==0)
+    <p><strong>Sorry, there weren't any articles found.</strong></p>
+    <p><a href="/contact">Let me know</a> if you think this is an error and I'll fix it as soon as possible.</p>
+    @endif
+    {{ $articles->links() }}
     </section>
-    <section class="article-preview">
-        <h2>Using VagrantTray to manage vagrant boxes</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-        <div class="article-info"><span class="date">14th March 2014</span><span class="comments">0 comments</span><span class="tag">Vagrant</span><span class="tag">VagrantTray</span></div>
-    </section>
+
     </div>
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
 </div>
 @stop

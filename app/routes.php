@@ -36,6 +36,11 @@ Route::get('/article', function()
 
 Route::get('/article/{id}', 'ArticleController@displayArticle');
 
+Route::get('/project', function()
+{
+    return View::make('project');
+});
+
 /* Administration */
 
 Route::get('/login', function()
@@ -56,10 +61,12 @@ Route::get('/admin', function()
     return View::make('admin.index');
 });
 
+/* Admin > Blog */
 Route::get('/admin/blog/create', function()
 {
     return View::make('admin.blog.create');
 });
+
 Route::post('/admin/blog/create', 'ArticleController@addArticle');
 
 Route::get('/admin/blog/{page}', function()
@@ -67,12 +74,20 @@ Route::get('/admin/blog/{page}', function()
     return View::make('blog');
 });
 
+/* Admin > Tutorials */
+Route::get('/admin/tutorials/create', function()
+{
+    return View::make('admin.tutorials.create');
+});
+
+Route::post('/admin/tutorials/create', 'ArticleController@addArticle');
 
 Route::get('/admin/tutorials/{page}', function()
 {
     return View::make('tutorials');
 });
 
+/* Admin > Projects */
 Route::get('/admin/projects/{page}', function()
 {
     return View::make('projects');

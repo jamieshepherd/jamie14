@@ -9,7 +9,7 @@
         <li class="fa fa-home">
         <li>BLOG
         </ul>
-        <div class="extra">Showing 4 of 4 results</div>
+        <div class="extra">Displaying {{ $articles->count() }} articles</div>
     </div>
     @foreach($articles as $article)
     <section class="article-preview">
@@ -26,13 +26,13 @@
         </div>
     </section>
     @endforeach
-    @if(count($articles)>=5)
     <section>
     {{ $articles->links() }}
     </section>
-    {{-- If none exist show error? --}}
-    </div>
+    @if(count($articles)==0)
+    Sorry no articles
     @endif
+    </div>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname

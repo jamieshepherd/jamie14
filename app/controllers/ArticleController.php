@@ -40,7 +40,7 @@ class ArticleController extends Controller {
     public function tutorialIndex()
     {
         $articles = $this->getIndex('tutorial');
-        return View::make('blog', compact('articles'));
+        return View::make('tutorials', compact('articles'));
     }
 
     protected function getIndex($type)
