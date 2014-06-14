@@ -193,6 +193,13 @@ footer img {
   display:inline-block;
   padding:5px 0;
 }
+#crumbtrail a {
+  color:#666;
+  text-decoration: none;
+}
+#crumbtrail a:hover {
+  text-decoration: underline;
+}
 input,textarea {
   font-family:'Open Sans',sans-serif;
   font-size:14px;

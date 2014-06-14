@@ -63,3 +63,22 @@ form .error {
     border: 1px solid #ccc;
     border-left: 3px solid #f99;
 }
+@media (max-width: 800px) {
+    .admin {
+        padding:10px 0;
+        font-size:14px;
+    }
+    .admin ul {
+        margin:0;
+        float:left;
+        width:100%;
+        text-align:left;
+        margin-left:5%;
+    }
+    .admin li {
+        padding:5px 10px;
+    }
+    .admin i {
+        display:none;
+    }
+}

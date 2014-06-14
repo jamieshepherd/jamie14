@@ -26,11 +26,13 @@
         </div>
     </section>
     @endforeach
+    @if(count($articles)>=5)
     <section>
     {{ $articles->links() }}
     </section>
     {{-- If none exist show error? --}}
     </div>
+    @endif
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname
