@@ -7,7 +7,7 @@
     <section>
         <h1>Hi there, I'm a <strong>designer and developer</strong> from <strong>Plymouth</strong>.</h1>
         <img src="/img/bio-jamie.png" width="104" height="104" class="avatar">
-        <p>My name is <a href="http://about.me/jamieshepherd">Jamie Shepherd</a>. I’m a 24 year old <a href="http://www1.plymouth.ac.uk/courses/undergraduate/3429/Pages/CourseDetail.aspx">Computer Science</a> student at Plymouth University. I’m passionate about technology, design and development, and open source software. In my spare time, I can be found working on a <a href="/projects">few cool projects</a> from web sites to software applications. I'm also available for part-time and contract work in web design and development. If you like, you can follow me on <a href="http://twitter.com/jamiesheep">Twitter</a>, <a href="http://www.github.com/jamieshepherd">GitHub</a>, and <a href="http://uk.linkedin.com/in/jamieshepherd">LinkedIn</a>.</p>
+        <p>My name is <a href="http://about.me/jamieshepherd">Jamie Shepherd</a>. I’m a 24 year old <a href="http://www1.plymouth.ac.uk/courses/undergraduate/3429/Pages/CourseDetail.aspx">Computer Science</a> student at Plymouth University. I’m passionate about design, technology, and open source software. In my spare time, I can usually be found working on <a href="/projects">a few projects</a> from web sites to software applications. I'm also available for part-time and contract work in web design and development. If you like, you can follow me on <a href="http://twitter.com/jamiesheep">Twitter</a>, <a href="http://www.github.com/jamieshepherd">GitHub</a>, and <a href="http://uk.linkedin.com/in/jamieshepherd">LinkedIn</a>.</p>
     </section>
     <section>
         <div class="subsection">
