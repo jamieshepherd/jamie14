@@ -31,9 +31,20 @@ class ArticleController extends Controller {
         return View::make('article', compact('article'));
     }
 
-    public function displayIndex()
+    public function blogIndex()
     {
-        $type = Request::segment(1);
+        $articles = $this->getIndex('blog');
+        return View::make('blog', compact('articles'));
+    }
+
+    public function tutorialIndex()
+    {
+        $articles = $this->getIndex('tutorial');
+        return View::make('blog', compact('articles'));
+    }
+
+    protected function getIndex($type)
+    {
         // remember(60) an hour
         // $articles = Article::with('tags')->where('type','=','blog')->remember(60)->get();
         $articles = Article::with('tags')
@@ -41,14 +52,13 @@ class ArticleController extends Controller {
             ->where('visible','=',true)
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
-        return View::make('blog', compact('articles'));
+        return $articles;
     }
 
-    public function syncTags(Article $article, array $tags)
+    protected function syncTags(Article $article, array $tags)
     {
         // Create or add tags
         $found = $article->tag->findOrCreate(strtolower(trim($tags)));
-
         $tagIds = array();
 
         foreach($found as $tag)
