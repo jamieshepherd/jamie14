@@ -11,7 +11,7 @@
         <input type="hidden" name="type" value="blog">
         <label for="title">Title</label>
         <input name="title" type="text" placeholder="Title">
-        <label for="title">Article content</label>
+        <label for="title"><i class="fa fa-maxcdn"></i> Article content</label>
         <textarea name="text" placeholder="Article content"></textarea>
         <label for="tags">Tags (comma separated)</label>
         <input name="tags" type="text" placeholder="e.g. University, Technology, Development">

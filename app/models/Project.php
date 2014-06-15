@@ -8,5 +8,6 @@ class Project extends Eloquent {
      * @var string
      */
     protected $table = 'projects';
+    protected $guarded = array('id');
 
 }

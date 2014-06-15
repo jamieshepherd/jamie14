@@ -88,10 +88,15 @@ Route::get('/admin/tutorials/{page}', function()
 });
 
 /* Admin > Projects */
+Route::get('/admin/projects/create', function()
+{
+    return View::make('admin.projects.create');
+});
 Route::get('/admin/projects/{page}', function()
 {
     return View::make('projects');
 });
+Route::post('/admin/projects/create', 'ProjectController@addProject');
 
 Route::get('/admin/password', function()
 {

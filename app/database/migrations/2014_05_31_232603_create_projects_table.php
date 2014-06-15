@@ -16,10 +16,10 @@ class CreateProjectsTable extends Migration {
         {
             $table->increments('id');
             $table->string('title');
+            $table->text('released');
+            $table->string('tech');
             $table->string('url');
             $table->text('text');
-            $table->string('tech');
-            $table->date('launch_date');
             $table->boolean('visible');
             $table->timestamps();
         });

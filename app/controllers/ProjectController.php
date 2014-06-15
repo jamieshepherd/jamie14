@@ -9,56 +9,78 @@ class ProjectController extends Controller {
      */
     protected function addProject()
     {
-        // Do the tags first
-        $tags       = explode(',', Input::get('tags'));
+        // Upload images
+        //if(isset(Input::file('image1')))
+        //
+        //For loop x4
 
-        $article = new Article;
-        $article->title             = Input::get('title');
-        $article->setTextAttribute(   Input::get('text'));
-        $article->type              = Input::get('type');
-        $article->visible           = Input::has('public');
-        $article->save();
+        for($i=0;$i<4;$i++) {
+        $current = 'image'.$i;
+            if(null!== Input::file($current)) {
+                $file                       = Input::file($current);
+                $destination                = 'img/projects';
+                $filename                   = str_random(12);
+                $filename                  .= '.'.$file->getClientOriginalExtension();
+                $uploaded                   = Input::file($current)->move($destination,$filename);
+                if ($uploaded) {
+                    echo "Success";
+                } else {
+                    echo "No success";
+                }
+            }
+        }
 
-        // sync tags
-        $article->syncTags($article,$tags);
+        $project = new Project;
+        $project->title             = Input::get('title');
+        $project->released          = Input::get('released');
+        $project->tech              = Input::get('tech');
+        $project->url               = Input::get('url');
+        $project->text              = Input::get('text');
+        $project->visible           = Input::has('public');
+        $project->save();
 
-        return View::make('admin.blog.create')->with('message','Awesome! This was created successfully.');
+        // sync images
+        // $project->syncImages($project,$images);
+
+        return View::make('admin.index')->with('message','Success! This project was created successfully.');
     }
 
-    public function displayArticle($id)
+    public function displayproject($id)
     {
-        $article = DB::table('articles')->where('id', $id)->first();
-        return View::make('article', compact('article'));
+        $project = DB::table('projects')->where('id', $id)->first();
+        return View::make('project', compact('project'));
     }
 
     public function blogIndex()
     {
-        $articles = $this->getIndex('blog');
-        return View::make('blog', compact('articles'));
+        $projects = $this->getIndex('blog');
+        return View::make('blog', compact('projects'));
     }
 
     public function tutorialIndex()
     {
-        $articles = $this->getIndex('tutorial');
-        return View::make('tutorials', compact('articles'));
+        $projects = $this->getIndex('tutorial');
+        return View::make('tutorials', compact('projects'));
     }
 
-    protected function getIndex($type)
+    protected function getIndex()
     {
         // remember(60) an hour
-        // $articles = Article::with('tags')->where('type','=','blog')->remember(60)->get();
-        $articles = Article::with('tags')
+        // $projects = project::with('tags')->where('type','=','blog')->remember(60)->get();
+        /*
+        $projects = Project::with('tags')
             ->where('type','=', $type)
             ->where('visible','=',true)
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
-        return $articles;
+        return $projects;
+        */
     }
 
-    protected function syncTags(Article $article, array $tags)
+    protected function syncTags(project $project, array $tags)
     {
         // Create or add tags
-        $found = $article->tag->findOrCreate(strtolower(trim($tags)));
+        $found = $project->tag->findOrCreate(strtolower(trim($tags)));
         $tagIds = array();
 
         foreach($found as $tag)
@@ -66,8 +88,8 @@ class ProjectController extends Controller {
             $tagIds[] = $tag->id;
         }
 
-        // Assign set tags to article
-        $article->tags()->sync($tagIds);
+        // Assign set tags to project
+        $project->tags()->sync($tagIds);
     }
 
 }

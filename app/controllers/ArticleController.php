@@ -22,7 +22,7 @@ class ArticleController extends Controller {
         // sync tags
         $article->syncTags($article,$tags);
 
-        return View::make('admin.blog.create')->with('message','Awesome! This was created successfully.');
+        return View::make('admin')->with('message','Success! This article was created successfully.');
     }
 
     public function displayArticle($id)

@@ -7,11 +7,11 @@
     @include('layout.admin.nav')
     <section class="article-editor">
         <h2>Write a tutorial</h2>
-        <form action="{{ url('/admin/blog/create') }}" method="post">
+        <form action="{{ url('/admin/tutorials/create') }}" method="post">
         <input type="hidden" name="type" value="tutorial">
         <label for="title">Title</label>
         <input name="title" type="text" placeholder="Title">
-        <label for="title">Article content</label>
+        <label for="title"><i class="fa fa-maxcdn"></i> Article content</label>
         <textarea name="text" placeholder="Article content"></textarea>
         <label for="tags">Tags (comma separated)</label>
         <input name="tags" type="text" placeholder="e.g. University, Technology, Development">

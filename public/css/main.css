@@ -458,6 +458,16 @@ textarea {
 form input[type="submit"] {
 
 }
+form fieldset {
+    background:#fff;
+    border:1px solid #ccc;
+    padding:0 2%;
+    margin:10px 0;
+}
+form input[type="file"] {
+    width:49%;
+    display:inline-block;
+}
 
 /******************************************
  * CSS TRANSITIONS
