@@ -9,4 +9,9 @@ class Image extends Eloquent {
      */
     protected $table = 'images';
 
+    public function project()
+    {
+        return $this->belongsTo('Project');
+    }
+
 }

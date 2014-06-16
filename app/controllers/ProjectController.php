@@ -9,11 +9,6 @@ class ProjectController extends Controller {
      */
     protected function addProject()
     {
-        // Upload images
-        //if(isset(Input::file('image1')))
-        //
-        //For loop x4
-
         for($i=0;$i<4;$i++) {
         $current = 'image'.$i;
             if(null!== Input::file($current)) {
@@ -40,7 +35,7 @@ class ProjectController extends Controller {
         $project->save();
 
         // sync images
-        // $project->syncImages($project,$images);
+        $project->syncImages($project,$images);
 
         return View::make('admin.index')->with('message','Success! This project was created successfully.');
     }
@@ -49,18 +44,6 @@ class ProjectController extends Controller {
     {
         $project = DB::table('projects')->where('id', $id)->first();
         return View::make('project', compact('project'));
-    }
-
-    public function blogIndex()
-    {
-        $projects = $this->getIndex('blog');
-        return View::make('blog', compact('projects'));
-    }
-
-    public function tutorialIndex()
-    {
-        $projects = $this->getIndex('tutorial');
-        return View::make('tutorials', compact('projects'));
     }
 
     protected function getIndex()
@@ -77,10 +60,10 @@ class ProjectController extends Controller {
         */
     }
 
-    protected function syncTags(project $project, array $tags)
+    protected function syncImages(Project $project, array $images)
     {
         // Create or add tags
-        $found = $project->tag->findOrCreate(strtolower(trim($tags)));
+        $found = $project->image->findOrCreate(strtolower(trim($images)));
         $tagIds = array();
 
         foreach($found as $tag)

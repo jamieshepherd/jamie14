@@ -22,7 +22,7 @@ class ArticleController extends Controller {
         // sync tags
         $article->syncTags($article,$tags);
 
-        return View::make('admin')->with('message','Success! This article was created successfully.');
+        return View::make('admin.index')->with('message','Success! This article was created successfully.');
     }
 
     public function displayArticle($id)
@@ -54,20 +54,4 @@ class ArticleController extends Controller {
             ->paginate(5);
         return $articles;
     }
-
-    protected function syncTags(Article $article, array $tags)
-    {
-        // Create or add tags
-        $found = $article->tag->findOrCreate(strtolower(trim($tags)));
-        $tagIds = array();
-
-        foreach($found as $tag)
-        {
-            $tagIds[] = $tag->id;
-        }
-
-        // Assign set tags to article
-        $article->tags()->sync($tagIds);
-    }
-
 }

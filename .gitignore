@@ -1,10 +1,13 @@
+/.vagrant/
+/app/notes.php
 /bootstrap/compiled.php
+/public/img/projects
 /vendor
-composer.phar
-composer.lock
 .env.*.php
 .env.php
 .DS_Store
+composer.phar
+composer.lock
 Thumbs.db
-.vagrant/
-app/notes.php
+
+
