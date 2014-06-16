@@ -21,7 +21,8 @@ Route::get('/tutorials', 'ArticleController@tutorialIndex');
 
 Route::get('/projects', function()
 {
-    return View::make('projects');
+    $projects = Project::with('images')->get();
+    return View::make('projects', compact('projects'));
 });
 
 Route::get('/contact', function()

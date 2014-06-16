@@ -8,6 +8,7 @@ class Image extends Eloquent {
      * @var string
      */
     protected $table = 'images';
+    protected $guarded = array('id');
 
     public function project()
     {

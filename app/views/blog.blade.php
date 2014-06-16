@@ -27,12 +27,14 @@
     </section>
     @endforeach
     <section>
+    @if(count($articles)==0)
+    <p><strong>Sorry, there weren't any articles found.</strong></p>
+    <p><a href="/contact">Let me know</a> if you think this is an error and I'll fix it as soon as possible.</p>
+    @endif
     {{ $articles->links() }}
     </section>
-    @if(count($articles)==0)
-    Sorry no articles
-    @endif
     </div>
+
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'jamiedev'; // required: replace example with your forum shortname

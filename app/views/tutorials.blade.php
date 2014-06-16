@@ -33,7 +33,6 @@
     @endif
     {{ $articles->links() }}
     </section>
-
     </div>
 
     <script type="text/javascript">

@@ -15,4 +15,11 @@ class Project extends Eloquent {
         return $this->hasMany('Image');
     }
 
+    public function associateImages(Project $project, array $images)
+    {
+        foreach($images as $image)
+        {
+            Image::create(['filename' => $image, 'project_id' => $project->id]);
+        }
+    }
 }

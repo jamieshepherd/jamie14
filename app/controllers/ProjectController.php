@@ -9,7 +9,8 @@ class ProjectController extends Controller {
      */
     protected function addProject()
     {
-        for($i=0;$i<4;$i++) {
+        $images = array();
+        for($i=0;$i<=4;$i++) {
         $current = 'image'.$i;
             if(null!== Input::file($current)) {
                 $file                       = Input::file($current);
@@ -18,9 +19,9 @@ class ProjectController extends Controller {
                 $filename                  .= '.'.$file->getClientOriginalExtension();
                 $uploaded                   = Input::file($current)->move($destination,$filename);
                 if ($uploaded) {
-                    echo "Success";
+                    $images[] = $filename;
                 } else {
-                    echo "No success";
+                    Log::error('Something went wrong with image upload');
                 }
             }
         }
@@ -34,8 +35,8 @@ class ProjectController extends Controller {
         $project->visible           = Input::has('public');
         $project->save();
 
-        // sync images
-        $project->syncImages($project,$images);
+        // associateImages
+        $project->associateImages($project,$images);
 
         return View::make('admin.index')->with('message','Success! This project was created successfully.');
     }
@@ -59,20 +60,4 @@ class ProjectController extends Controller {
         return $projects;
         */
     }
-
-    protected function syncImages(Project $project, array $images)
-    {
-        // Create or add tags
-        $found = $project->image->findOrCreate(strtolower(trim($images)));
-        $tagIds = array();
-
-        foreach($found as $tag)
-        {
-            $tagIds[] = $tag->id;
-        }
-
-        // Assign set tags to project
-        $project->tags()->sync($tagIds);
-    }
-
 }

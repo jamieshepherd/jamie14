@@ -11,30 +11,14 @@
         </ul>
     </div>
     <section class="projects">
+        @foreach($projects as $project)
         <div class="project-preview anm-opacity">
-            <a href="/project">
-            <img src="/img/thumb1.jpg" width="100%" class="anm">
-            <h3 class="anm">jamieshepherd.me</h3>
+            <a href="/project/{{ $project->id }}">
+            <img src="/img/projects/{{ $project->images()->first()->filename }}" width="100%" class="anm">
+            <h3 class="anm">{{ $project->title }}</h3>
             </a>
         </div>
-        <div class="project-preview anm-opacity">
-            <a href="/project">
-            <img src="/img/thumb2.jpg" width="100%" class="anm">
-            <h3 class="anm">Property Panther</h3>
-            </a>
-        </div>
-        <div class="project-preview anm-opacity">
-            <a href="/project">
-            <img src="/img/thumb3.jpg" width="100%" class="anm">
-            <h3 class="anm">C-THRU Window Cleaning</h3>
-            </a>
-        </div>
-        <div class="project-preview anm-opacity">
-            <a href="/project">
-            <img src="/img/thumb4.jpg" width="100%" class="anm">
-            <h3 class="anm">jamie (v1)</h3>
-            </a>
-        </div>
+        @endforeach
     </section>
     </div>
 </div>
