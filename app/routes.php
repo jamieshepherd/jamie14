@@ -68,6 +68,12 @@ Route::get('/admin/blog/create', function()
     return View::make('admin.blog.create');
 });
 
+Route::get('/admin/blog/edit/{id}', function()
+{
+    $article = Article::find(1)->where('id', $id);
+    return View::make('admin.blog.edit', compact('article'));
+});
+
 Route::post('/admin/blog/create', 'ArticleController@addArticle');
 
 Route::get('/admin/blog/{page}', function()

@@ -25,6 +25,12 @@ class ArticleController extends Controller {
         return View::make('admin.index')->with('message','Success! This article was created successfully.');
     }
 
+    public function getArticle($id)
+    {
+        $article = DB::table('articles')->where('id', $id)->first();
+        return $article;
+    }
+
     public function displayArticle($id)
     {
         $article = DB::table('articles')->where('id', $id)->first();

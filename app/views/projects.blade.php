@@ -19,6 +19,10 @@
             </a>
         </div>
         @endforeach
+        @if(count($projects)==0)
+        <p><strong>Sorry, there weren't any projects found.</strong></p>
+        <p><a href="/contact">Let me know</a> if you think this is an error and I'll fix it as soon as possible.</p>
+        @endif
     </section>
     </div>
 </div>

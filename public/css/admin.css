@@ -1,35 +1,35 @@
 .admin {
-    position:relative;
-    margin:-38px 0 30px;
-    background:#ececec;
-    padding:15px 0;
-    border-top:none;
-    border-bottom:1px solid #ccc;
-    display:inline-block;
-    z-index:1;
+  position:relative;
+  margin:-38px 0 30px;
+  background:#ececec;
+  padding:15px 0;
+  border-top:none;
+  border-bottom:1px solid #ccc;
+  display:inline-block;
+  z-index:1;
 }
 .admin ul {
-    float: right;
-    margin-right: 20%;
+  float: right;
+  margin-right: 20%;
 }
 .admin li {
-    text-transform: uppercase;
-    padding-right:15px;
-    border-left:1px solid #aaa;
-    padding-left:15px;
+  text-transform: uppercase;
+  padding-right:15px;
+  border-left:1px solid #aaa;
+  padding-left:15px;
 }
 .admin li:first-of-type {
-    border-left:none;
+  border-left:none;
 }
 .admin .fa {
-    margin-left:3px;
+  margin-left:3px;
 }
 .admin li a {
-    color:#333;
+  color:#333;
 }
 .admin li a:hover {
-    color:#f60;
-    background:none;
+  color:#f60;
+  background:none;
 }
 .admin-nav a  {
   text-decoration: none;
@@ -41,44 +41,44 @@
   border-bottom: 1px dotted #ff6600;
 }
 .admin-nav li strong {
-    margin-left:7px;
+  margin-left:7px;
 }
 .article-editor input[type="submit"] {
-    width:auto;
-    padding:5px 10px;
-    clear:both;
-    display:block;
+  width:auto;
+  padding:5px 10px;
+  clear:both;
+  display:block;
 }
 .article-editor h2 {
-    text-align: left;
+  text-align: left;
 }
 .article-editor form label[for="public"] {
   display:inline-block;
   margin-left:5px;
 }
 .no-margin.btm {
-    margin-bottom:0;
+  margin-bottom:0;
 }
 form .error {
-    border: 1px solid #ccc;
-    border-left: 3px solid #f99;
+  border: 1px solid #ccc;
+  border-left: 3px solid #f99;
 }
 @media (max-width: 800px) {
-    .admin {
-        padding:10px 0;
-        font-size:14px;
-    }
-    .admin ul {
-        margin:0;
-        float:left;
-        width:100%;
-        text-align:left;
-        margin-left:5%;
-    }
-    .admin li {
-        padding:5px 10px;
-    }
-    .admin i {
-        display:none;
-    }
+  .admin {
+    padding:10px 0;
+    font-size:14px;
+  }
+  .admin ul {
+    margin:0;
+    float:left;
+    width:100%;
+    text-align:left;
+    margin-left:5%;
+  }
+  .admin li {
+    padding:5px 10px;
+  }
+  .admin i {
+    display:none;
+  }
 }
