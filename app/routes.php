@@ -65,20 +65,39 @@ Route::get('/admin', function()
 /* Admin > Blog */
 Route::get('/admin/blog/view', function()
 {
-    return View::make('admin.blog.view');
+    $articles = Article::where('type','=','blog')
+        ->orderBy('created_at', 'DESC')
+        ->get();
+    return View::make('admin.blog.view', compact('articles'));
 });
 Route::get('/admin/blog/create', function()
 {
     return View::make('admin.blog.create');
 });
 
-Route::get('/admin/blog/edit/{id}', function()
+Route::get('/admin/blog/edit/{id}', function($id)
 {
-    $article = Article::find(1)->where('id', $id);
+    $article = Article::where('id', $id)
+        ->first();
     return View::make('admin.blog.edit', compact('article'));
 });
+Route::get('/admin/tutorial/view', function()
+{
+    $articles = Article::where('type','=','tutorial')
+        ->orderBy('created_at', 'DESC')
+        ->get();
+    return View::make('admin.tutorial.view', compact('articles'));
+});
+Route::get('/admin/tutorial/edit/{id}', function($id)
+{
+    $article = Article::where('id', $id)
+        ->first();
+    return View::make('admin.blog.edit', compact('article'));
+});
+Route::post('/admin/{type}/edit/{id}', 'ArticleController@updateArticle');
 
 Route::post('/admin/blog/create', 'ArticleController@addArticle');
+
 
 Route::get('/admin/blog/{page}', function()
 {
@@ -86,14 +105,14 @@ Route::get('/admin/blog/{page}', function()
 });
 
 /* Admin > Tutorials */
-Route::get('/admin/tutorials/create', function()
+Route::get('/admin/tutorial/create', function()
 {
-    return View::make('admin.tutorials.create');
+    return View::make('admin.tutorial.create');
 });
 
-Route::post('/admin/tutorials/create', 'ArticleController@addArticle');
+Route::post('/admin/tutorial/create', 'ArticleController@addArticle');
 
-Route::get('/admin/tutorials/{page}', function()
+Route::get('/admin/tutorial/{page}', function()
 {
     return View::make('tutorials');
 });

@@ -82,3 +82,12 @@ form .error {
     display:none;
   }
 }
+table td a {
+    color:#333;
+}
+table td a:hover {
+    color:#f60;
+}
+table i.fa-check-square.disabled {
+    color:#ccc;
+}

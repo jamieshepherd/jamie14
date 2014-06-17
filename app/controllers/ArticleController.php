@@ -25,6 +25,24 @@ class ArticleController extends Controller {
         return View::make('admin.index')->with('message','Success! This article was created successfully.');
     }
 
+    protected function updateArticle($type,$id)
+    {
+        // Do the tags first
+        $tags       = explode(',', Input::get('tags'));
+
+        $article = new Article;
+        $article->title             = Input::get('title');
+        $article->setTextAttribute(   Input::get('text'));
+        $article->type              = Input::get('type');
+        $article->visible           = Input::has('public');
+        $article->update();
+
+        // sync tags
+        $article->syncTags($article,$tags);
+
+        return View::make('admin.index')->with('message','Success! This article was created successfully.');
+    }
+
     public function getArticle($id)
     {
         $article = DB::table('articles')->where('id', $id)->first();

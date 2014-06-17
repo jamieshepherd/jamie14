@@ -7,7 +7,7 @@
     @include('layout.admin.nav')
     <section class="article-editor">
         <h2>Write a tutorial</h2>
-        <form action="{{ url('/admin/tutorials/create') }}" method="post">
+        <form action="{{ url('/admin/tutorial/create') }}" method="post">
         <input type="hidden" name="type" value="tutorial">
         <label for="title">Title</label>
         <input name="title" type="text" placeholder="Title">
