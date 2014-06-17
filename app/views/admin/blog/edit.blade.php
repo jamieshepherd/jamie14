@@ -7,7 +7,7 @@
     @include('layout.admin.nav')
     <section class="article-editor">
         <h2>Edit a blog post</h2>
-        <form action="{{ url('/admin/blog/create') }}" method="post">
+        <form action="{{ url('/admin/blog/edit/'.$article->id.'') }}" method="post">
         <input name="type" type="hidden" value="blog">
         <label for="id">Article ID</label>
         <input name="id" type="text" disabled="disabled" value="{{ $article->id }}">

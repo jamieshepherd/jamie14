@@ -94,10 +94,10 @@ Route::get('/admin/tutorial/edit/{id}', function($id)
         ->first();
     return View::make('admin.blog.edit', compact('article'));
 });
-Route::post('/admin/{type}/edit/{id}', 'ArticleController@updateArticle');
 
 Route::post('/admin/blog/create', 'ArticleController@addArticle');
-
+Route::post('/admin/blog/edit/{id}', 'ArticleController@updateArticle');
+Route::post('/admin/tutorial/edit', 'ArticleController@updateArticle');
 
 Route::get('/admin/blog/{page}', function()
 {

@@ -89,5 +89,8 @@ table td a:hover {
     color:#f60;
 }
 table i.fa-check-square.disabled {
+    color:#09f;
+}
+table i.fa-check-square.disabled {
     color:#ccc;
 }
