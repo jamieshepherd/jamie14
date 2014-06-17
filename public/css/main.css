@@ -741,6 +741,30 @@ hr {
 }
 
 /*
+ * Table
+ */
+
+table {
+    background:#fff;
+    width:100%;
+}
+thead {
+    background:#555;
+    color:#fff;
+}
+tr:nth-of-type(2n) {
+    background:#f6f6f6;
+}
+td {
+    border:1px solid #ccc;
+    padding:8px 10px;
+    width:20%;
+}
+td:first-of-type {
+    width:60%;
+}
+
+/*
  * Pagination elements
  */
 

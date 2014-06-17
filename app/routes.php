@@ -63,6 +63,10 @@ Route::get('/admin', function()
 });
 
 /* Admin > Blog */
+Route::get('/admin/blog/view', function()
+{
+    return View::make('admin.blog.view');
+});
 Route::get('/admin/blog/create', function()
 {
     return View::make('admin.blog.create');
