@@ -5,8 +5,8 @@
     @include('layout.header')
     <div id="main">
     @include('layout.admin.nav')
-    <section>
-        <h2>View Projects</h2>
+    <section class="article-editor">
+        <h2>View projects</h2>
         <table>
             <thead>
                 <td>Public</td><td>Title</td><td>Actions</td><td>Date</td>
@@ -17,7 +17,7 @@
                 <td class="large">{{ $project->title }}</td>
                 <td>
                     <a href="/project/{{ $project->id }}" title="View"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
-                    <a href="/admin/{{ $project->type }}/edit/{{ $project->id }}" title="Edit"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;
+                    <a href="/admin/project/edit/{{ $project->id }}" title="Edit"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;
                     <a href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
                 </td>
                 <td>{{ $project->created_at }}</td>

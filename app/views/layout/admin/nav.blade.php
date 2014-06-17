@@ -7,7 +7,7 @@
         <li class="brdr"><a href="/admin/tutorial/view">View</a>
         <li><a href="/admin/tutorial/create">Create</a>
         <li class="sect brdr"><span class="fa fa-rocket"></span><strong>Projects</strong>
-        <li class="brdr"><a href="/admin/projects/view">View</a>
-        <li><a href="/admin/projects/create">Create</a>
+        <li class="brdr"><a href="/admin/project/view">View</a>
+        <li><a href="/admin/project/create">Create</a>
     </ul>
 </section>

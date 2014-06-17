@@ -137,26 +137,29 @@ Route::get('/admin/tutorial/edit/{id}', function($id)
 });
 
 /**
- * Tutorial CRUD
+ * Project CRUD
  */
 
-Route::get('/admin/tutorial/{page}', function()
+Route::post('/admin/project/create', 'ProjectController@addProject');
+
+// Create
+Route::get('/admin/project/create', function()
 {
-    return View::make('tutorials');
+    return View::make('admin.project.create');
 });
 
-/**
- * Projects CRUD
- */
-
-Route::post('/admin/projects/create', 'ProjectController@addProject');
-
-Route::get('/admin/projects/create', function()
+// Read
+Route::get('/admin/project/view', function()
 {
-    return View::make('admin.projects.create');
+    $projects = Project::orderBy('created_at', 'DESC')
+        ->get();
+    return View::make('admin.project.view', compact('projects'));
 });
 
-Route::get('/admin/projects/{page}', function()
+// Update
+Route::get('/admin/project/edit/{id}', function($id)
 {
-    return View::make('projects');
+    $project = Project::where('id', $id)
+        ->first();
+    return View::make('admin.project.edit', compact('project'));
 });

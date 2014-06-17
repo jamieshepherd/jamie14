@@ -7,10 +7,10 @@
     @include('layout.admin.nav')
     <section class="article-editor">
         <h2>Add a project</h2>
-        <form action="{{ url('/admin/projects/create') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url('/admin/project/create') }}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="type" value="tutorial">
         <label for="title">Project title</label>
-        <input name="title" type="text" placeholder="Title" value="">
+        <input name="title" type="text" placeholder="Title">
         <label for="released">Release date</label>
         <input name="released" type="text" placeholder="01 January 2014">
         <label for="tech">Technologies used</label>

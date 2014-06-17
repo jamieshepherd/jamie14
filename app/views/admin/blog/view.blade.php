@@ -5,8 +5,8 @@
     @include('layout.header')
     <div id="main">
     @include('layout.admin.nav')
-    <section>
-        <h2>View Blogs</h2>
+    <section class="article-editor">
+        <h2>View blog posts</h2>
         <table>
             <thead>
                 <td>Public</td><td>Title</td><td>Actions</td><td>Date</td>
