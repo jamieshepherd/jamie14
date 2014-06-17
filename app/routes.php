@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-    return View::make('index');
+    return View::make('about');
 });
 
 Route::get('/blog', 'ArticleController@blogIndex');
@@ -42,8 +42,6 @@ Route::get('/project', function()
     return View::make('project');
 });
 
-/* Administration */
-
 Route::get('/login', function()
 {
     return View::make('login');
@@ -57,12 +55,41 @@ Route::get('/logout', function()
     return View::make('login')->with('message', 'You have successfully logged out.');;
 });
 
+/*
+|--------------------------------------------------------------------------
+| Administration Routes
+|--------------------------------------------------------------------------
+|
+| Routes specific to the private administration section of the site
+|
+*/
+
+Route::post('/admin/password', 'UserController@changePassword');
+
 Route::get('/admin', function()
 {
     return View::make('admin.index');
 });
 
-/* Admin > Blog */
+Route::get('/admin/password', function()
+{
+    return View::make('admin.password');
+});
+
+/**
+ * Blog CRUD
+ */
+
+Route::post('/admin/blog/create', 'ArticleController@addArticle');
+Route::post('/admin/blog/edit/{id}', 'ArticleController@updateArticle');
+
+// Create
+Route::get('/admin/blog/create', function()
+{
+    return View::make('admin.blog.create');
+});
+
+// Read
 Route::get('/admin/blog/view', function()
 {
     $articles = Article::where('type','=','blog')
@@ -70,17 +97,29 @@ Route::get('/admin/blog/view', function()
         ->get();
     return View::make('admin.blog.view', compact('articles'));
 });
-Route::get('/admin/blog/create', function()
-{
-    return View::make('admin.blog.create');
-});
 
+//Update
 Route::get('/admin/blog/edit/{id}', function($id)
 {
     $article = Article::where('id', $id)
         ->first();
     return View::make('admin.blog.edit', compact('article'));
 });
+
+/**
+ * Tutorial CRUD
+ */
+
+Route::post('/admin/tutorial/create', 'ArticleController@addArticle');
+Route::post('/admin/tutorial/edit', 'ArticleController@updateArticle');
+
+// Create
+Route::get('/admin/tutorial/create', function()
+{
+    return View::make('admin.tutorial.create');
+});
+
+// Read
 Route::get('/admin/tutorial/view', function()
 {
     $articles = Article::where('type','=','tutorial')
@@ -88,6 +127,8 @@ Route::get('/admin/tutorial/view', function()
         ->get();
     return View::make('admin.tutorial.view', compact('articles'));
 });
+
+// Update
 Route::get('/admin/tutorial/edit/{id}', function($id)
 {
     $article = Article::where('id', $id)
@@ -95,41 +136,27 @@ Route::get('/admin/tutorial/edit/{id}', function($id)
     return View::make('admin.blog.edit', compact('article'));
 });
 
-Route::post('/admin/blog/create', 'ArticleController@addArticle');
-Route::post('/admin/blog/edit/{id}', 'ArticleController@updateArticle');
-Route::post('/admin/tutorial/edit', 'ArticleController@updateArticle');
-
-Route::get('/admin/blog/{page}', function()
-{
-    return View::make('blog');
-});
-
-/* Admin > Tutorials */
-Route::get('/admin/tutorial/create', function()
-{
-    return View::make('admin.tutorial.create');
-});
-
-Route::post('/admin/tutorial/create', 'ArticleController@addArticle');
+/**
+ * Tutorial CRUD
+ */
 
 Route::get('/admin/tutorial/{page}', function()
 {
     return View::make('tutorials');
 });
 
-/* Admin > Projects */
+/**
+ * Projects CRUD
+ */
+
+Route::post('/admin/projects/create', 'ProjectController@addProject');
+
 Route::get('/admin/projects/create', function()
 {
     return View::make('admin.projects.create');
 });
+
 Route::get('/admin/projects/{page}', function()
 {
     return View::make('projects');
 });
-Route::post('/admin/projects/create', 'ProjectController@addProject');
-
-Route::get('/admin/password', function()
-{
-    return View::make('admin.password');
-});
-Route::post('/admin/password', 'UserController@changePassword');

@@ -10,7 +10,7 @@
         <form action="{{ url('/admin/projects/create') }}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="type" value="tutorial">
         <label for="title">Project title</label>
-        <input name="title" type="text" placeholder="Title">
+        <input name="title" type="text" placeholder="Title" value="">
         <label for="released">Release date</label>
         <input name="released" type="text" placeholder="01 January 2014">
         <label for="tech">Technologies used</label>
