@@ -326,7 +326,9 @@ article span.date {
   .project .subsection.flip.desktop-right {
     float:right;
  }
-
+.project img {
+    margin-bottom:10px;
+}
  .project h2 {
     padding-bottom:10px;
  }

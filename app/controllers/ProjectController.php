@@ -59,7 +59,7 @@ class ProjectController extends Controller {
 
     public function displayproject($id)
     {
-        $project = DB::table('projects')->where('id', $id)->first();
+        $project = DB::table('projects')->with('images')->where('id', $id)->get();
         return View::make('project', compact('project'));
     }
 }

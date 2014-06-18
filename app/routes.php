@@ -24,6 +24,11 @@ Route::get('/projects', function()
     $projects = Project::with('images')->get();
     return View::make('projects', compact('projects'));
 });
+Route::get('/project/{id}', function($id)
+{
+    $project = Project::with('images')->where('id', $id)->first();
+    return View::make('project', compact('project'));
+});
 
 Route::get('/contact', function()
 {
@@ -36,11 +41,6 @@ Route::get('/article', function()
 });
 
 Route::get('/article/{id}', 'ArticleController@displayArticle');
-
-Route::get('/project', function()
-{
-    return View::make('project');
-});
 
 Route::get('/login', function()
 {
