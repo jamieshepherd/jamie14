@@ -93,6 +93,7 @@ Route::post('/admin/blog/edit/{id}', 'ArticleController@updateArticle');
 // Create
 Route::get('/admin/blog/create', function()
 {
+    // validate
     return View::make('admin.blog.create');
 });
 

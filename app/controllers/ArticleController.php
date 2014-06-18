@@ -10,19 +10,28 @@ class ArticleController extends Controller {
     protected function addArticle()
     {
         // Do the tags first
-        $tags       = explode(',', Input::get('tags'));
-
+        $data                           = Input::all();
         $article = new Article;
-        $article->title             = Input::get('title');
-        $article->setTextAttribute(   Input::get('text'));
-        $article->type              = Input::get('type');
-        $article->visible           = Input::has('public');
-        $article->save();
+        $errors = $article->validate($data);
+        if(!$errors)
+        {
+            $article->title             = Input::get('title');
+            $article->setTextAttribute(   Input::get('text'));
+            $article->type              = Input::get('type');
+            $article->visible           = Input::has('public');
+            $article->save();
 
-        // sync tags
-        $article->syncTags($article,$tags);
+            // sync tags
+            $tags       = explode(',', Input::get('tags'));
+            $article->syncTags($article,$tags);
 
-        return Redirect::to('admin/'.$article->type.'/view')->with('message','Success! This article was created successfully.');
+            return Redirect::to('admin/'.$article->type.'/view')->with('message','Success! This article was created successfully.');
+        } else {
+            return Redirect::to('admin/'.$article->type.'/create')
+                ->with('message',
+                    'Changing your password was <strong>unsuccessful</strong>. Please check your submission and try again.')
+                ->withErrors($errors);
+        }
     }
 
     protected function updateArticle($id)

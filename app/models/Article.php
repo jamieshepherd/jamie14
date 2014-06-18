@@ -10,6 +10,12 @@ class Article extends Eloquent {
     protected $table = 'articles';
     protected $guarded = array('id');
 
+    private $rules = array(
+            'title' => 'Required|Min:3',
+            'text' => 'Required|Min:20',
+            'tags' => 'Required|Min:3'
+    );
+
     public function setTextAttribute($value) {
         $this->attributes['text'] = $value;
         $this->attributes['summary'] = substr(strip_tags(Parsedown::instance()->text($value)), 0, 250);
@@ -32,6 +38,17 @@ class Article extends Eloquent {
 
         // Assign set tags to article
         $article->tags()->sync($tagIds);
+    }
+
+    public function validate($data)
+    {
+        $validation = Validator::make($data,$this->rules);
+
+        if($validation->passes()) {
+            return $errors = false;
+        } else {
+            return $errors = $validation->messages();
+        }
     }
 
 }
