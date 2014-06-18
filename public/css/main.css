@@ -559,6 +559,9 @@ blockquote cite {
 blockquote cite:before {
   content: "- ";
 }
+blockquote p {
+    padding:0;
+}
 .article-preview a {
   color:#333;
   text-decoration: none;
