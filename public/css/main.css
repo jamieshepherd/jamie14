@@ -774,7 +774,11 @@ td.large {
 /*
  * Pagination elements
  */
-
+.pagination {
+    padding:30px 0;
+    border-top:1px solid #ccc;
+    text-align:left;
+}
 .pagination ul {
   display: inline-block;
   *display: inline;

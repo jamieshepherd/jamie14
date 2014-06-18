@@ -26,13 +26,13 @@
         </div>
     </section>
     @endforeach
-    <section>
     @if(count($articles)==0)
+    <section>
     <p><strong>Sorry, there weren't any articles found.</strong></p>
     <p><a href="/contact">Let me know</a> if you think this is an error and I'll fix it as soon as possible.</p>
+    </section>
     @endif
     {{ $articles->links() }}
-    </section>
     </div>
 
     <script type="text/javascript">
