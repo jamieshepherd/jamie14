@@ -51,6 +51,16 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::missing(function($exception)
+{
+    /*
+    return Response::make(
+        View::make('errors/404')
+    , 404);
+    */
+   echo "404";
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler

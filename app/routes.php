@@ -11,6 +11,11 @@
 |
 */
 
+Event::listen('404', function()
+{
+    return Response::error('404');
+});
+
 Route::get('/', function()
 {
     return View::make('about');

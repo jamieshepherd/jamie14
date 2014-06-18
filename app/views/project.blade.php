@@ -9,9 +9,7 @@
         <li class="fa fa-home">
         <li>Project
         <li>{{ $project->title }}
-        {{--<li> $project->title --}}
         </ul>
-        <span class="extra extra-date">{{-- date('d F Y', strtotime($project->created_at)) --}}</span>
     </div>
     <section class="project">
         <div class="subsection left-aligned flip desktop-right">
