@@ -93,7 +93,6 @@ Route::post('/admin/blog/edit/{id}', 'ArticleController@updateArticle');
 // Create
 Route::get('/admin/blog/create', function()
 {
-    // validate
     return View::make('admin.blog.create');
 });
 
@@ -209,5 +208,11 @@ Route::get('/admin/project/delete/{id}', function($id)
 Route::get('/admin/project/delete/{id}/confirm', function($id)
 {
     Project::destroy($id);
+    $images = Image::where('id',$id)->get();
+    // destroy images associated with project
+    foreach($images as $image) {
+        unlink('img/projects/'.$image->filename);
+        Image::destroy($id);
+    }
     return Redirect::to('admin/project/view')->with('message','Success! This project was removed from the database successfully.');
 });
