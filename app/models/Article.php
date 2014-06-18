@@ -12,7 +12,7 @@ class Article extends Eloquent {
 
     public function setTextAttribute($value) {
         $this->attributes['text'] = $value;
-        $this->attributes['summary'] = substr(strip_tags($value), 0, 250);
+        $this->attributes['summary'] = substr(strip_tags(Parsedown::instance()->text($value)), 0, 250);
     }
 
     public function tags()
