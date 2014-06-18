@@ -9,10 +9,10 @@
         </nav>
         @endif
         <img src="/img/logo.svg" height="70" alt="Jamie Shepherd logo">
-        @if(isset($message))
+        @if(Session::has('message'))
             <div class="site-message">
                 <span class="fa fa-times close-button"></span>
-                <p>{{ $message }}</p>
+                <p>{{ Session::get('message') }}</p>
             </div>
         @endif
 

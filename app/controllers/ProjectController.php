@@ -38,26 +38,28 @@ class ProjectController extends Controller {
         // associateImages
         $project->associateImages($project,$images);
 
-        return View::make('admin.index')->with('message','Success! This project was created successfully.');
+        return Redirect::to('admin/project/view')->with('message','Success! This project was created successfully.');
+    }
+
+    protected function updateProject($id)
+    {
+        $project                    = Project::find($id);
+        $project->title             = Input::get('title');
+        $project->released          = Input::get('released');
+        $project->tech              = Input::get('tech');
+        $project->url               = Input::get('url');
+        $project->text              = Input::get('text');
+        $project->visible           = Input::has('public');
+        $project->save();
+
+        // Do image update separately?
+
+        return Redirect::to('admin/project/view')->with('message','Success! This project was updated successfully.');
     }
 
     public function displayproject($id)
     {
         $project = DB::table('projects')->where('id', $id)->first();
         return View::make('project', compact('project'));
-    }
-
-    protected function getIndex()
-    {
-        // remember(60) an hour
-        // $projects = project::with('tags')->where('type','=','blog')->remember(60)->get();
-        /*
-        $projects = Project::with('tags')
-            ->where('type','=', $type)
-            ->where('visible','=',true)
-            ->orderBy('created_at', 'DESC')
-            ->paginate(5);
-        return $projects;
-        */
     }
 }

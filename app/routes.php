@@ -76,9 +76,9 @@ Route::get('/admin/password', function()
     return View::make('admin.password');
 });
 
-/**
+/*******************************************************************************
  * Blog CRUD
- */
+ ******************************************************************************/
 
 Route::post('/admin/blog/create', 'ArticleController@addArticle');
 Route::post('/admin/blog/edit/{id}', 'ArticleController@updateArticle');
@@ -98,7 +98,7 @@ Route::get('/admin/blog/view', function()
     return View::make('admin.blog.view', compact('articles'));
 });
 
-//Update
+// Update
 Route::get('/admin/blog/edit/{id}', function($id)
 {
     $article = Article::where('id', $id)
@@ -106,12 +106,25 @@ Route::get('/admin/blog/edit/{id}', function($id)
     return View::make('admin.blog.edit', compact('article'));
 });
 
-/**
+// Delete
+Route::get('/admin/blog/delete/{id}', function($id)
+{
+    $article = Article::where('id', $id)
+        ->first();
+    return View::make('admin.blog.delete', compact('article'));
+});
+Route::get('/admin/blog/delete/{id}/confirm', function($id)
+{
+    Article::destroy($id);
+    return Redirect::to('admin/blog/view')->with('message','Success! This article was removed from the database successfully.');
+});
+
+/*******************************************************************************
  * Tutorial CRUD
- */
+ ******************************************************************************/
 
 Route::post('/admin/tutorial/create', 'ArticleController@addArticle');
-Route::post('/admin/tutorial/edit', 'ArticleController@updateArticle');
+Route::post('/admin/tutorial/edit/{id}', 'ArticleController@updateArticle');
 
 // Create
 Route::get('/admin/tutorial/create', function()
@@ -133,14 +146,28 @@ Route::get('/admin/tutorial/edit/{id}', function($id)
 {
     $article = Article::where('id', $id)
         ->first();
-    return View::make('admin.blog.edit', compact('article'));
+    return View::make('admin.tutorial.edit', compact('article'));
 });
 
-/**
+// Delete
+Route::get('/admin/tutorial/delete/{id}', function($id)
+{
+    $article = Article::where('id', $id)
+        ->first();
+    return View::make('admin.tutorial.delete', compact('article'));
+});
+Route::get('/admin/tutorial/delete/{id}/confirm', function($id)
+{
+    Article::destroy($id);
+    return Redirect::to('admin/tutorial/view')->with('message','Success! This article was removed from the database successfully.');
+});
+
+/*******************************************************************************
  * Project CRUD
- */
+ ******************************************************************************/
 
 Route::post('/admin/project/create', 'ProjectController@addProject');
+Route::post('/admin/project/edit/{id}', 'ProjectController@updateProject');
 
 // Create
 Route::get('/admin/project/create', function()
@@ -162,4 +189,17 @@ Route::get('/admin/project/edit/{id}', function($id)
     $project = Project::where('id', $id)
         ->first();
     return View::make('admin.project.edit', compact('project'));
+});
+
+// Delete
+Route::get('/admin/project/delete/{id}', function($id)
+{
+    $project = Project::where('id', $id)
+        ->first();
+    return View::make('admin.project.delete', compact('project'));
+});
+Route::get('/admin/project/delete/{id}/confirm', function($id)
+{
+    Project::destroy($id);
+    return Redirect::to('admin/project/view')->with('message','Success! This project was removed from the database successfully.');
 });

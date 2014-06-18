@@ -17,8 +17,8 @@
                 <td class="large">{{ $article->title }}</td>
                 <td>
                     <a href="/article/{{ $article->id }}" title="View"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
-                    <a href="/admin/{{ $article->type }}/edit/{{ $article->id }}" title="Edit"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;
-                    <a href="#" title="Delete"><i class="fa fa-trash-o"></i></a>
+                    <a href="/admin/blog/edit/{{ $article->id }}" title="Edit"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;
+                    <a href="/admin/blog/delete/{{ $article->id }}" title="Delete"><i class="fa fa-trash-o"></i></a>
                 </td>
                 <td>{{ $article->created_at }}</td>
             </tr>

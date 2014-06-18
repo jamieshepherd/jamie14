@@ -22,13 +22,13 @@ class ArticleController extends Controller {
         // sync tags
         $article->syncTags($article,$tags);
 
-        return View::make('admin.index')->with('message','Success! This article was created successfully.');
+        return Redirect::to('admin/'.$article->type.'/view')->with('message','Success! This article was created successfully.');
     }
 
     protected function updateArticle($id)
     {
         $text                       = Input::get('text');
-        $article = Article::find($id);
+        $article                    = Article::find($id);
         $article->title             = Input::get('title');
         $article->text              = Input::get('text');
         $article->summary           = substr(strip_tags($text), 0, 250);
@@ -40,7 +40,7 @@ class ArticleController extends Controller {
         $tags       = explode(',', Input::get('tags'));
         $article->syncTags($article,$tags);
 
-        return View::make('admin.index')->with('message','Success! This article was updated successfully.');
+        return Redirect::to('admin/'.$article->type.'/view')->with('message','Success! This article was updated successfully.');
     }
 
     public function getArticle($id)

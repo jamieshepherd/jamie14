@@ -94,3 +94,6 @@ table i.fa-check-square.disabled {
 table i.fa-check-square.disabled {
     color:#ccc;
 }
+.article-editor .site-message {
+    margin:0 0 30px;
+}
