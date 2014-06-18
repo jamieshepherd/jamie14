@@ -9,10 +9,17 @@ class ProjectController extends Controller {
      */
     protected function addProject()
     {
-        $images = array();
-        for($i=0;$i<=4;$i++) {
-        $current = 'image'.$i;
-            if(null!== Input::file($current)) {
+        $data = Input::all();
+        $project = new Project;
+        $errors = $project->validate($data);
+
+        if(!$errors)
+        {
+            $images = array();
+            for($i=0;$i<=4;$i++) {
+            $current = 'image'.$i;
+            if(null!== Input::file($current))
+            {
                 $file                       = Input::file($current);
                 $destination                = 'img/projects';
                 $filename                   = str_random(12);
@@ -24,9 +31,8 @@ class ProjectController extends Controller {
                     Log::error('Something went wrong with image upload');
                 }
             }
-        }
+            }
 
-        $project = new Project;
         $project->title             = Input::get('title');
         $project->released          = Input::get('released');
         $project->tech              = Input::get('tech');
@@ -39,6 +45,13 @@ class ProjectController extends Controller {
         $project->associateImages($project,$images);
 
         return Redirect::to('admin/project/view')->with('message','Success! This project was created successfully.');
+        } else {
+            return Redirect::to('admin/project/create')
+                ->with('message',
+                    'Creating this project was <strong>unsuccessful</strong>. Please check your submission and try again.')
+                ->withErrors($errors);
+        }
+
     }
 
     protected function updateProject($id)
