@@ -64,6 +64,8 @@ Route::get('/logout', function()
 |
 */
 
+Route::when('admin/*', 'auth');
+
 Route::post('/admin/password', 'UserController@changePassword');
 
 Route::get('/admin', function()
