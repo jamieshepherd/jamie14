@@ -73,7 +73,7 @@ Route::post('/contact', function(){
         $message->to('itsjamieshepherd@gmail.com', 'Jamie Shepherd')->subject('Contact form');
     });
 
-    return Redirect::to('contact')->with('message', '<strong>Thanks for your message!</strong> I\'ll try to respond within 48 hours.');
+    return Redirect::to('contact')->with('message', '<strong>Thanks for your message!</strong> I aim to respond to all emails within 48 hours.');
 });
 
 /*

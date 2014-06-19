@@ -5,7 +5,7 @@ This is the repository for the latest version of jamieshepherd.me - the personal
 ## Attribution
 
 * The core of the website has been built with the [Laravel framework](http://laravel.com).
-* Parsedown is used for publishing articles and tutorials from markdown to PHP
+* Parsedown is used for publishing articles and tutorials from markdown to HTML
 * highlight.js has been used for code highlighting blocks
 
 ### License
