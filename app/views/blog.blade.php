@@ -20,7 +20,7 @@
             <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread">0 COMMENTS</a></span>
             @foreach($article->tags as $tag)
                 @if(!empty($tag->name))
-                <span class="tag"><a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a></span>
+                <span class="tag"><a href="#">{{ $tag->name }}</a></span>
                 @endif
             @endforeach
         </div>
