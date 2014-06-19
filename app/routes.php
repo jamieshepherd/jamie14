@@ -26,7 +26,9 @@ Route::get('/tutorials', 'ArticleController@tutorialIndex');
 
 Route::get('/projects', function()
 {
-    $projects = Project::with('images')->get();
+    $projects = Project::with('images')
+        ->orderBy('created_at', 'DESC')
+        ->get();
     return View::make('projects', compact('projects'));
 });
 Route::get('/project/{id}', function($id)
