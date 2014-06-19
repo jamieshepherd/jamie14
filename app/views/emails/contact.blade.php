@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<h2>Contact form at <strong>jamieshepherd.me</strong></h2>
-        <h3>Sent by: </h3>
+        <h3>Sent by: {{ $from }} ({{ $email }})</h3>
 		<div>
 			{{ $text }}
 		</div>
