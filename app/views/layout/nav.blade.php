@@ -7,7 +7,7 @@
         <li><a href="/contact">CONTACT</a>
     </ul>
 </menu>
-<nav class="anm">
+<nav>
     <a class="fa fa-bars" id="showMenu"></a>
     <ul class="links anm">
         <li><a href="/">ABOUT</a>
