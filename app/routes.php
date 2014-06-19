@@ -85,6 +85,7 @@ Route::post('/contact', function(){
 |
 */
 
+Route::when('admin', 'auth');
 Route::when('admin/*', 'auth');
 
 Route::post('/admin/password', 'UserController@changePassword');
