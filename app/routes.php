@@ -60,6 +60,22 @@ Route::get('/logout', function()
     return View::make('login')->with('message', 'You have successfully logged out.');;
 });
 
+Route::post('/contact', function(){
+    $data = array(
+        'from'  => Input::get('name'),
+        'email' => Input::get('email'),
+        'text'  => Input::get('text')
+        );
+
+    Mail::send('emails.contact', $data, function($message)
+    {
+        //$message->from('email@email.com', 'email admin');
+        $message->to('itsjamieshepherd@gmail.com', 'Jamie Shepherd')->subject('Contact form');
+    });
+
+    return Redirect::to('contact')->with('message', '<strong>Thanks for your message!</strong> I\'ll try to respond within 48 hours.');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Administration Routes

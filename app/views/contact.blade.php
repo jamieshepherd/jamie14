@@ -13,13 +13,13 @@
         </div>
         <div class="subsection left-aligned">
             <h2>Leave a message.</h2>
-            <form>
+            <form action="{{ url('/contact') }}" method="post">
             <label for="name">Full name</label>
             <input name="name" type="text" placeholder="Full name">
-            <label for="name">Email address</label>
+            <label for="email">Email address</label>
             <input name="email" type="email" placeholder="Email address">
-            <label for="name">Your message</label>
-            <textarea name="content" placeholder="Your message"></textarea>
+            <label for="text">Your message</label>
+            <textarea name="text" placeholder="Your message"></textarea>
             <input type="submit" value="Send message">
             </form>
         </div>
