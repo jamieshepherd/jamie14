@@ -24,7 +24,9 @@
         </div>
         <div class="subsection left-aligned flip desktop-left">
         @foreach($project->images as $image)
+        <a href="/img/projects/{{ $image->filename }}">
         <img src="/img/projects/{{ $image->filename }}" width="100%" height="100%" class="project-image">
+        </a>
         @endforeach
         </div>
 
