@@ -98,8 +98,17 @@ table i.fa-check-square.disabled {
     margin:0 0 30px;
 }
 
+@media (max-width: 1000px) {
+    .admin ul {
+        margin-right: 10%;
+    }
+}
+
 @media (max-width: 800px) {
     .admin ul {
         margin:0;
+    }
+    .admin li:first-of-type {
+        margin-left:5%;
     }
 }
