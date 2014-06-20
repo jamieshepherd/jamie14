@@ -40,7 +40,7 @@ class ArticleController extends Controller {
         $article                    = Article::find($id);
         $article->title             = Input::get('title');
         $article->text              = Input::get('text');
-        $article->summary           = substr(strip_tags($text), 0, 250);
+        $article->summary           = substr(strip_tags(Parsedown::instance()->text($text)), 0, 250);
         $article->type              = Input::get('type');
         $article->visible           = Input::has('public');
         $article->save();
@@ -61,7 +61,12 @@ class ArticleController extends Controller {
     public function displayArticle($id)
     {
         $article = DB::table('articles')->where('id', $id)->first();
-        return View::make('article', compact('article'));
+        if($article->visible) {
+            return View::make('article', compact('article'));
+        } else {
+            //return Response::error('404');
+            return View::make('errors.404');
+        }
     }
 
     public function blogIndex()
