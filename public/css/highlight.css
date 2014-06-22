@@ -26,7 +26,7 @@ Based off github.com style
 .hljs-subst,
 .hljs-request,
 .hljs-status {
-  color: #f60;
+  color: #f09;
   font-weight: 600;
   font-style: italic;
 }
@@ -41,7 +41,7 @@ Based off github.com style
 .hljs-tag .hljs-value,
 .hljs-phpdoc,
 .tex .hljs-formula {
-  color: #f09;
+  color: #f00;
 }
 
 .hljs-title,
@@ -90,7 +90,7 @@ Based off github.com style
 .lisp .hljs-keyword,
 .tex .hljs-special,
 .hljs-prompt {
-  color: #f09;
+  color: #f00;
 }
 
 .hljs-built_in,
