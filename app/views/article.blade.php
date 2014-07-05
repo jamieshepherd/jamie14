@@ -29,6 +29,7 @@
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'jamieshepherd'; // required: replace example with your forum shortname
+            var disqus_identifier = '{{ $article->id }}';
 
             /* * * DON'T EDIT BELOW THIS LINE * * */
             (function() {

@@ -31,7 +31,7 @@ Route::get('/projects', function()
         ->get();
     return View::make('projects', compact('projects'));
 });
-Route::get('/project/{id}', function($id)
+Route::get('/project/{id}/{slug?}', function($id)
 {
     $project = Project::with('images')->where('id', $id)->first();
     return View::make('project', compact('project'));
@@ -47,7 +47,7 @@ Route::get('/article', function()
     return View::make('article');
 });
 
-Route::get('/article/{id}', 'ArticleController@displayArticle');
+Route::get('/article/{id}/{slug?}', 'ArticleController@displayArticle');
 
 Route::get('/login', function()
 {
@@ -72,7 +72,7 @@ Route::post('/contact', function(){
     Mail::send('emails.contact', $data, function($message)
     {
         //$message->from('email@email.com', 'email admin');
-        $message->to('itsjamieshepherd@gmail.com', 'Jamie Shepherd')->subject('Contact form');
+        $message->to('email@jamie.sh', 'Jamie Shepherd')->subject('jamie.sh contact form');
     });
 
     return Redirect::to('contact')->with('message', '<strong>Thanks for your message!</strong> I aim to respond to all emails within 48 hours.');

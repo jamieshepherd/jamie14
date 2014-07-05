@@ -517,7 +517,7 @@ article em {
     font-style: italic;
 }
 article img {
-
+    width:100%;
 }
 article figure {
 

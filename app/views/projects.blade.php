@@ -13,7 +13,7 @@
     <section class="projects">
         @foreach($projects as $project)
         <div class="project-preview anm-opacity">
-            <a href="/project/{{ $project->id }}">
+            <a href="/project/{{ $project->id }}/{{ Str::slug($project->title) }}">
             <img src="/img/projects/{{ $project->images()->first()->filename }}" width="100%" class="anm">
             <h3 class="anm">{{ $project->title }}</h3>
             </a>

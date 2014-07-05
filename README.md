@@ -1,6 +1,6 @@
-## jamieshepherd.me
+## jamie.sh
 
-This is the repository for the latest version of jamieshepherd.me - the personal website of Jamie Shepherd (that's me!). If you would like to use parts of the source code for your own projects, please feel free. I only ask that you don't blatently rip off the design and be creative with your own.
+This is the repository for the latest version of jamie.sh - the personal website of Jamie Shepherd (that's me!). If you would like to use parts of the source code for your own projects, please feel free. I only ask that you don't blatently rip off the design and be creative with your own.
 
 ## Attribution
 

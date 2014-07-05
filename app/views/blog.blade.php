@@ -13,7 +13,7 @@
     </div>
     @foreach($articles as $article)
     <section class="article-preview">
-        <h2><a href="/article/{{ $article->id }}">{{ $article->title }}</a></h2>
+        <h2><a href="/article/{{ $article->id }}/{{ Str::slug($article->title) }}">{{ $article->title }}</a></h2>
         <p>{{ $article->summary }}...</p>
         <div class="article-info">
             <span class="date"><a href="/article/{{ $article->id }}">{{ date('d F Y', strtotime($article->created_at)) }}</a></span>
