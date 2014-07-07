@@ -8,28 +8,26 @@
   display:inline-block;
   z-index:1;
 }
-.admin ul {
+.admin ul.right {
   float: right;
   margin-right: 20%;
 }
 .admin li {
-  text-transform: uppercase;
-  padding-right:15px;
-  border-left:1px solid #aaa;
-  padding-left:15px;
-}
-.admin li:first-of-type {
-  border-left:none;
+    background:#09f;
+    color:#fff;
+    padding:8px;
+    text-transform: uppercase;
+    margin:0 7px;
 }
 .admin .fa {
   margin-left:3px;
 }
-.admin li a {
-  color:#333;
+.admin li:hover {
+  color:#fff;
+  background:#f60;
 }
-.admin li a:hover {
-  color:#f60;
-  background:none;
+.admin li a, .admin li a:hover {
+    color: inherit;
 }
 .admin-nav a  {
   text-decoration: none;

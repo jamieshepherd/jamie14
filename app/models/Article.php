@@ -51,6 +51,11 @@ class Article extends Eloquent {
         }
     }
 
+    /**
+     * List our tags as comma separated, except the last element
+     * @param  object $input An object storing related tags of an article
+     * @return string        The trimmed output of all the tags as a string
+     */
     public function listTags($input)
     {
         $output = "";
