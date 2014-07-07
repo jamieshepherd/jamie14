@@ -31,11 +31,7 @@ Route::get('/projects', function()
         ->get();
     return View::make('projects', compact('projects'));
 });
-Route::get('/project/{id}/{slug?}', function($id)
-{
-    $project = Project::with('images')->where('id', $id)->first();
-    return View::make('project', compact('project'));
-});
+Route::get('/project/{id}/{slug?}', 'ProjectController@displayProject');
 
 Route::get('/contact', function()
 {

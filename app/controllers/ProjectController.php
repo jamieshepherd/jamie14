@@ -70,9 +70,14 @@ class ProjectController extends Controller {
         return Redirect::to('admin/project/view')->with('message','Success! This project was updated successfully.');
     }
 
-    public function displayproject($id)
+    public function displayProject($id)
     {
-        $project = DB::table('projects')->with('images')->where('id', $id)->get();
-        return View::make('project', compact('project'));
+        $project = Project::with('images')->where('id', $id)->first();
+        if($project->visible) {
+            return View::make('project', compact('project'));
+        } else {
+            //return Response::error('404');
+            return View::make('errors.404');
+        }
     }
 }
