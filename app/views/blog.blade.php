@@ -11,14 +11,14 @@
         </ul>
         <div class="extra">Displaying {{ $articles->count() }} articles</div>
     </div>
-    @foreach($articles as $article)
+    @foreach($articles as $blog)
     <section class="article-preview">
-        <h2><a href="/article/{{ $article->id }}/{{ Str::slug($article->title) }}">{{ $article->title }}</a></h2>
-        <p>{{ $article->summary }}...</p>
+        <h2><a href="/article/{{ $blog->id }}/{{ Str::slug($blog->title) }}">{{ $blog->title }}</a></h2>
+        <p>{{ $blog->summary }}...</p>
         <div class="article-info">
-            <span class="date"><a href="/article/{{ $article->id }}">{{ date('d F Y', strtotime($article->created_at)) }}</a></span>
-            <span class="comments"><a href="/article/{{ $article->id }}#disqus_thread">0 COMMENTS</a></span>
-            @foreach($article->tags as $tag)
+            <span class="date"><a href="/article/{{ $blog->id }}">{{ date('d F Y', strtotime($blog->created_at)) }}</a></span>
+            <span class="comments"><a href="/article/{{ $blog->id }}#disqus_thread">0 COMMENTS</a></span>
+            @foreach($blog->tags as $tag)
                 @if(!empty($tag->name))
                 <span class="tag"><a href="#">{{ $tag->name }}</a></span>
                 @endif

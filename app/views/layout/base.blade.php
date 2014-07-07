@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jamie Shepherd - Plymouth, UK</title>
+    <title>{{ isset($article->title) ? $article->title.' - ' : '' }}Jamie Shepherd - Plymouth, UK</title>
     <meta name="description" content="Jamie Shepherd is a web designer and developer, technology enthusiast, and computer science student"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
