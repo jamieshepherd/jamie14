@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'jamieshepherd',
 			'username'  => 'root',
-			'password'  => 'password',
+			'password'  => 'Je9uzytRZqGEY1lLuzjo',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

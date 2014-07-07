@@ -1,6 +1,7 @@
 /.vagrant/
 /app/notes.php
 /bootstrap/compiled.php
+/public/img/articles
 /public/img/projects
 /vendor
 .env.*.php

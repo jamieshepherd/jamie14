@@ -17,7 +17,7 @@
         <p>{{ $blog->summary }}...</p>
         <div class="article-info">
             <span class="date"><a href="/article/{{ $blog->id }}">{{ date('d F Y', strtotime($blog->created_at)) }}</a></span>
-            <span class="comments"><a href="/article/{{ $blog->id }}#disqus_thread">0 COMMENTS</a></span>
+            <span class="comments"><a href="/article/{{ $blog->id }}#disqus_thread" data-disqus-identifier="{{ $blog->id }}">0 COMMENTS</a></span>
             @foreach($blog->tags as $tag)
                 @if(!empty($tag->name))
                 <span class="tag"><a href="#">{{ $tag->name }}</a></span>

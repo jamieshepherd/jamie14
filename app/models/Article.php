@@ -51,4 +51,13 @@ class Article extends Eloquent {
         }
     }
 
+    public function listTags($input)
+    {
+        $output = "";
+        foreach($input as $tag) {
+            $output .= $tag->name .',';
+        }
+        return rtrim($output, ",");
+    }
+
 }

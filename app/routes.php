@@ -11,9 +11,9 @@
 |
 */
 
-Event::listen('404', function()
+App::missing(function($exception)
 {
-    return Response::error('404');
+    return Response::view('errors.404', array(), 404);
 });
 
 Route::get('/', function()
@@ -36,11 +36,6 @@ Route::get('/project/{id}/{slug?}', 'ProjectController@displayProject');
 Route::get('/contact', function()
 {
     return View::make('contact');
-});
-
-Route::get('/article', function()
-{
-    return View::make('article');
 });
 
 Route::get('/article/{id}/{slug?}', 'ArticleController@displayArticle');
@@ -67,7 +62,6 @@ Route::post('/contact', function(){
 
     Mail::send('emails.contact', $data, function($message)
     {
-        //$message->from('email@email.com', 'email admin');
         $message->to('email@jamie.sh', 'Jamie Shepherd')->subject('jamie.sh contact form');
     });
 

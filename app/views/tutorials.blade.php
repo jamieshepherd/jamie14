@@ -9,7 +9,7 @@
         <li class="fa fa-home">
         <li>TUTORIALS
         </ul>
-        <div class="extra">DISPLAYING {{ $articles->count() }} results</div>
+        <div class="extra">DISPLAYING {{ $articles->count() }} articles</div>
     </div>
     @foreach($articles as $tutorial)
     <section class="article-preview">
@@ -17,7 +17,7 @@
         <p>{{ $tutorial->summary }}...</p>
         <div class="article-info">
             <span class="date"><a href="/article/{{ $tutorial->id }}">{{ date('d F Y', strtotime($tutorial->created_at)) }}</a></span>
-            <span class="comments"><a href="/article/{{ $tutorial->id }}#disqus_thread">0 COMMENTS</a></span>
+            <span class="comments"><a href="/article/{{ $tutorial->id }}#disqus_thread" data-disqus-identifier="{{ $tutorial->id }}">0 COMMENTS</a></span>
             @foreach($tutorial->tags as $tag)
                 @if(!empty($tag->name))
                 <span class="tag"><a href="#">{{ $tag->name }}</a></span>
