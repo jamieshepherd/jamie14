@@ -497,11 +497,13 @@ span a,span a:hover {
 article {
   border-top:#ccc solid 1px;
   padding:40px 0;
+  text-align:left;
 }
 article h1 {
   padding-bottom: 15px;
   font-weight:600;
   font-size:28px;
+  text-align:left;
 }
 article h2 {
     text-align:left;

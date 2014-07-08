@@ -4,7 +4,6 @@
 <div id="viewport">
     @include('layout.header')
     <div id="main">
-    @include('layout.admin.nav')
     <section class="article-editor">
         <h2>Edit a tutorial</h2>
         <form action="{{ url('/admin/blog/edit/'.$article->id.'') }}" method="post">
@@ -16,7 +15,7 @@
         <label for="title"><i class="fa fa-maxcdn"></i> Article content</label>
         <textarea name="text" placeholder="Article content">{{ $article->text }}</textarea>
         <label for="tags">Tags (comma separated)</label>
-        <input name="tags" type="text" placeholder="e.g. University, Technology, Development" value="@foreach($article->tags as $tag){{ $tag->name }},@endforeach">
+        <input name="tags" type="text" placeholder="e.g. University, Technology, Development" value="{{ $article->listTags($article->tags) }}">
         <input name="public" type="checkbox" @if($article->visible==1) checked @endif><label for="public">Publicly visible?</label>
         <input type="submit" value="Submit">
         </form>

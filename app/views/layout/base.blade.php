@@ -9,6 +9,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
 @yield('lib')
     {{ HTML::script('js/main.js') }}
+    {{ HTML::script('js/dropdown.js') }}
     <link media="all" type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
     <link media="all" type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
     {{ HTML::style('css/main.css') }}

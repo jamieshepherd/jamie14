@@ -4,7 +4,6 @@
 <div id="viewport">
     @include('layout.header')
     <div id="main">
-    @include('layout.admin.nav')
     <section class="article-editor">
         <h2>Edit a project</h2>
         <form action="{{ url('/admin/project/edit/'.$project->id.'') }}" method="post">

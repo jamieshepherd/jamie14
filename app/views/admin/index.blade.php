@@ -4,7 +4,6 @@
 <div id="viewport">
     @include('layout.header')
     <div id="main">
-    @include('layout.admin.nav')
     <section>
         <div class="subsection left-aligned">
             <h2>Something here.</h2>
