@@ -77,15 +77,9 @@ Route::post('/contact', function(){
 |
 */
 
-Route::when('admin', 'auth');
 Route::when('admin/*', 'auth');
 
 Route::post('/admin/password', 'UserController@changePassword');
-
-Route::get('/admin', function()
-{
-    return View::make('admin.index');
-});
 
 Route::get('/admin/password', function()
 {
