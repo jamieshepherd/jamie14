@@ -1,11 +1,18 @@
     <header>
         @if(Auth::check())
+        @section('lib')
+            {{ HTML::script('js/admin.js') }}
+        @stop
         <nav class="admin">
             <ul class="right">
-                <li class="btn">Create <i class="fa fa-caret-down"></i></li>
-                <li class="btn">View <i class="fa fa-caret-down"></i></li>
-                <li><a href="/admin/password">Change password <i class="fa fa-lock"></i></a>
-                <li><a href="/logout">Logout <i class="fa fa-sign-out"></i></a>
+                <li><button type="button" id="adm_btn_create">Create <i class="fa fa-caret-down"></i></button></li>
+                <li><button type="button" id="adm_btn_view">View <i class="fa fa-caret-down"></i></button></li>
+                <li><button type="button" id="adm_btn_pass">Change password <i class="fa fa-lock"></i></button></li>
+                <li><button type="button" id="adm_btn_logout">Logout <i class="fa fa-sign-out"></i></button></li>
+                <!--
+                <li><a href="/admin/password">Change password </a>
+                <li><a href="/logout">Logout </i></a>
+                -->
             </ul>
         </nav>
         @endif

@@ -2,7 +2,7 @@
   position:relative;
   margin:-38px 0 30px;
   background:#ececec;
-  padding:15px 0;
+  padding:10px 0;
   border-top:none;
   border-bottom:1px solid #ccc;
   display:inline-block;
@@ -12,22 +12,15 @@
   float: right;
   margin-right: 20%;
 }
-.admin li {
-    background:#09f;
-    color:#fff;
-    padding:8px;
+.admin button {
     text-transform: uppercase;
-    margin:0 7px;
+    padding:5px 7px;
+    border:1px solid #ccc;
+    background:#eee;
+    cursor: pointer;
 }
-.admin .fa {
-  margin-left:3px;
-}
-.admin li:hover {
-  color:#fff;
-  background:#f60;
-}
-.admin li a, .admin li a:hover {
-    color: inherit;
+.admin button:hover {
+    color: #f60;
 }
 .admin-nav a  {
   text-decoration: none;
