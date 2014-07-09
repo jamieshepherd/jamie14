@@ -1,5 +1,8 @@
     <header>
         @if(Auth::check())
+@section('css')
+    {{ HTML::style('css/admin.css') }}
+@stop
         <nav class="admin">
             <ul class="right">
             <li><button type="button" id="adm_btn_create" data-dropdown="#dropdown-1">Create <i class="fa fa-caret-down"></i></button></li>
