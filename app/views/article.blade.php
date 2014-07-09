@@ -3,9 +3,6 @@
     <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 @stop
 
-@section('css')
-    {{ HTML::style('css/highlight.css') }}
-@stop
 @section('body')
 
 <script>hljs.initHighlightingOnLoad();</script>

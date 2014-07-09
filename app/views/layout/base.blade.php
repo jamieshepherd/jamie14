@@ -12,6 +12,7 @@
     {{ HTML::script('js/dropdown.js') }}
     {{ HTML::style('css/reset.css') }}
     {{ HTML::style('css/main.css') }}
+    {{ HTML::style('css/highlight.css') }}
     <link media="all" type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
 @yield('css')
 </head>
