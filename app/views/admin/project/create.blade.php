@@ -30,10 +30,4 @@
         </form>
     </section>
 </div>
-
-    <script>
-    $function(){
-        $('.datepicker').datepicker()
-    }
-    </script>
 @stop

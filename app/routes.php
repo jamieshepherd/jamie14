@@ -219,3 +219,36 @@ Route::get('/admin/project/delete/{id}/confirm', function($id)
     }
     return Redirect::to('admin/project/view')->with('message','Success! This project was removed from the database successfully.');
 });
+
+/*******************************************************************************
+ * Media CRUD
+ ******************************************************************************/
+
+Route::post('/admin/media/create', 'MediaController@addImage');
+
+// Create
+Route::get('/admin/media/create', function()
+{
+    return View::make('admin.media.create');
+});
+
+// Read
+Route::get('/admin/media/view', function()
+{
+    $images = Image::orderBy('created_at', 'DESC')
+        ->get();
+    return View::make('admin.media.view', compact('images'));
+});
+
+// Delete
+Route::get('/admin/media/delete/{id}', function($id)
+{
+    $image = Image::where('id', $id)
+        ->first();
+    return View::make('admin.media.delete', compact('image'));
+});
+Route::get('/admin/media/delete/{id}/confirm', function($id)
+{
+    Image::destroy($id);
+    return Redirect::to('admin/media/view')->with('message','Success! This image was removed from the database successfully.');
+});
