@@ -189,6 +189,7 @@ Route::get('/admin/project/create', function()
 Route::get('/admin/project/view', function()
 {
     $projects = Project::orderBy('created_at', 'DESC')
+        ->remember(120)
         ->get();
     return View::make('admin.project.view', compact('projects'));
 });
