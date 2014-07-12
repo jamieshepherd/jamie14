@@ -5,14 +5,14 @@
     <title>{{ isset($article->title) ? $article->title.' - ' : '' }}Jamie Shepherd - Plymouth, UK</title>
     <meta name="description" content="Jamie Shepherd is a web designer and developer, technology enthusiast, and computer science student"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 @yield('lib')
-    {{ HTML::script('js/modernizr.js') }}
+    {{ HTML::script('//lib.jamie.sh/jquery.min.js') }}
+    {{ HTML::script('//lib.jamie.sh/modernizr.min.js') }}
+    {{ HTML::script('//lib.jamie.sh/dropdown.min.js') }}
     {{ HTML::script('js/main.js') }}
-    {{ HTML::script('js/dropdown.js') }}
-    {{ HTML::style('css/reset.css') }}
+    {{ HTML::style('//lib.jamie.sh/reset.min.css') }}
+    {{ HTML::style('//lib.jamie.sh/highlight.min.css') }}
     {{ HTML::style('css/main.css') }}
-    {{ HTML::style('css/highlight.css') }}
     <link media="all" type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
 @yield('css')
 </head>

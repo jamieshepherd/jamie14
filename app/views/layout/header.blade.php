@@ -5,7 +5,7 @@
 @stop
         <nav class="admin">
             <ul class="right">
-            <li><button type="button" id="adm_btn_create" data-dropdown="#dropdown-1">Create <i class="fa fa-caret-down"></i></button></li>
+            <li><button type="button" id="adm_btn_create" data-dropdown="#dropdown-1">Add New <i class="fa fa-caret-down"></i></button></li>
                 <li><button type="button" id="adm_btn_view" data-dropdown="#dropdown-2">View <i class="fa fa-caret-down"></i></button></li>
 
                 <li><button type="button" id="adm_btn_pass" onclick="window.location='/admin/password'">Change password <i class="fa fa-lock"></i></button></li>
@@ -17,6 +17,7 @@
                 <li><a href="/admin/blog/create">Blog</a></li>
                 <li><a href="/admin/tutorial/create">Tutorial</a></li>
                 <li><a href="/admin/project/create">Project</a></li>
+                <li><a href="/admin/media/create">Media</a></li>
             </ul>
         </div>
         <div id="dropdown-2" class="dropdown dropdown-tip">
@@ -24,6 +25,7 @@
                 <li><a href="/admin/blog/view">Blog posts</a></li>
                 <li><a href="/admin/tutorial/view">Tutorials</a></li>
                 <li><a href="/admin/project/view">Projects</a></li>
+                <li><a href="/admin/media/view">Media</a></li>
             </ul>
         </div>
         @endif

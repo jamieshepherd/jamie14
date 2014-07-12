@@ -89,6 +89,7 @@ class ArticleController extends Controller {
             ->where('type','=', $type)
             ->where('visible','=',true)
             ->orderBy('created_at', 'DESC')
+            ->remember(60)
             ->paginate(5);
         return $articles;
     }

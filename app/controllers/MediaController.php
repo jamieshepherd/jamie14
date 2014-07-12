@@ -21,7 +21,7 @@ class MediaController extends Controller {
             $image->project_id          = Input::get('project_id');
             $image->filename            = $filename;
             $image->save();
-            return Redirect::to('admin/project/view')->with('message','Success! This image was added successfully.');
+            return Redirect::to('admin/media/view')->with('message','Success! This image was added successfully.');
         } else {
             Log::error('Something went wrong with image upload');
         }
